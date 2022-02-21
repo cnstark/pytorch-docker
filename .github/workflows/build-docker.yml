@@ -14,21 +14,27 @@ jobs:
           docker version
           docker login --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build docker image
+      - name: Build docker image (1.9.1-py3.9.7-ubuntu20.04)
         run: |
-          docker build \
-            --build-arg UBUNTU_VERSION=${UBUNTU_VERSION} \
-            --build-arg PYTHON_VERSION=${PYTHON_VERSION} \
-            --build-arg PYTORCH_VERSION=${PYTORCH_VERSION} \
-            --build-arg TORCHVISION_VERSION=${TORCHVISION_VERSION} \
-            --build-arg TORCHAUDIO_VERSION=${TORCHAUDIO_VERSION} \
-            -t yuhaow/pytorch:${PYTORCH_VERSION}-py${PYTHON_VERSION}-ubuntu${UBUNTU_VERSION} \
-            -f docker/ubuntu/Dockerfile \
-            .
+          scripts/build_template_ubuntu.sh
           docker push yuhaow/pytorch:${PYTORCH_VERSION}-py${PYTHON_VERSION}-ubuntu${UBUNTU_VERSION}
         env:
           UBUNTU_VERSION: 20.04
           PYTHON_VERSION: 3.9.7
           PYTORCH_VERSION: 1.9.1
+          TORCHVISION_VERSION: 0.10.1
+          TORCHAUDIO_VERSION: 0.9.1
+
+      - name: Build docker image (1.9.1-py3.9.7-cuda11.1-ubuntu20.04)
+        run: |
+          scripts/build_template_ubuntu_cuda.sh
+          docker push yuhaow/pytorch:${PYTORCH_VERSION}-py${PYTHON_VERSION}-cuda${CUDA_VERSION}-ubuntu${UBUNTU_VERSION}
+        env:
+          UBUNTU_VERSION: 20.04
+          CUDA_VERSION: 11.1
+          CUDNN_VERSION: 8
+          PYTHON_VERSION: 3.9.7
+          PYTORCH_VERSION: 1.9.1
+          PYTORCH_CUDA_VERSION: cu111
           TORCHVISION_VERSION: 0.10.1
           TORCHAUDIO_VERSION: 0.9.1
