@@ -1,0 +1,17 @@
+name: Build Docker Image CI
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build the Docker image
+        run: |
+          docker version
+          docker login --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }}
+          docker build . -f docker/gpu/Dockerfile.gpu -t yuhaow/pytorch:1.9.1-py3.9.7-cuda11-ubuntu20.04
+          docker push yuhaow/pytorch:1.9.1-py3.9.7-cuda11-ubuntu20.04
