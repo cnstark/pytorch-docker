@@ -5,7 +5,7 @@ on:
       - main
     paths:
       - 'docker/ubuntu/**'
-      - '.github/workflows/**'
+      - '.github/workflows/build-docker-ubuntu.yml'
 jobs:
   build:
     runs-on: ubuntu-latest

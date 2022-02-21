@@ -5,7 +5,7 @@ on:
       - main
     paths:
       - 'docker/ubuntu-cuda/**'
-      - '.github/workflows/**'
+      - '.github/workflows/build-docker-ubuntu-cuda.yml'
 jobs:
   build:
     runs-on: ubuntu-latest
