@@ -4,4 +4,4 @@ export PYTORCH_VERSION=1.9.1
 export TORCHVISION_VERSION=0.10.1
 export TORCHAUDIO_VERSION=0.9.1
 
-./scripts/build_template_ubuntu.sh
+./docker/ubuntu/build.sh

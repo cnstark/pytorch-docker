@@ -7,4 +7,4 @@ export PYTORCH_CUDA_VERSION=cu111
 export TORCHVISION_VERSION=0.10.1
 export TORCHAUDIO_VERSION=0.9.1
 
-./scripts/build_template_ubuntu_cuda.sh
+./docker/ubuntu-cuda/build.sh

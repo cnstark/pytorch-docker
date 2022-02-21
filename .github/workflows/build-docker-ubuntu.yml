@@ -1,0 +1,29 @@
+name: Build Docker Image CI (ubuntu-cuda)
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'docker/ubuntu/**'
+      - '.github/workflows/**'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Login DockerHub
+        run: |
+          docker version
+          docker login --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build docker image (1.9.1-py3.9.7-ubuntu20.04)
+        run: |
+          docker/ubuntu/build.sh
+          docker push yuhaow/pytorch:${PYTORCH_VERSION}-py${PYTHON_VERSION}-ubuntu${UBUNTU_VERSION}
+        env:
+          UBUNTU_VERSION: 20.04
+          PYTHON_VERSION: 3.9.7
+          PYTORCH_VERSION: 1.9.1
+          TORCHVISION_VERSION: 0.10.1
+          TORCHAUDIO_VERSION: 0.9.1
