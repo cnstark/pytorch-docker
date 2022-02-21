@@ -1,13 +1,14 @@
 ARG UBUNTU_VERSION
 ARG CUDA_VERSION
 ARG CUDNN_VERSION
+
+FROM nvidia/cuda:${CUDA_VERSION}-cudnn${CUDNN_VERSION}-runtime-ubuntu${UBUNTU_VERSION}
+
 ARG PYTHON_VERSION
 ARG PYTORCH_VERSION
 ARG PYTORCH_CUDA_VERSION
 ARG TORCHVISION_VERSION
 ARG TORCHAUDIO_VERSION
-
-FROM nvidia/cuda:${CUDA_VERSION}-cudnn${CUDNN_VERSION}-runtime-ubuntu${UBUNTU_VERSION}
 
 RUN apt update && \
     apt install -y wget build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev libbz2-dev liblzma-dev
