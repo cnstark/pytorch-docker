@@ -7,7 +7,9 @@ ARG PYTORCH_VERSION
 ARG TORCHVISION_VERSION
 ARG TORCHAUDIO_VERSION
 
-RUN yum install -y wget gcc lzma openssl-devel tk-devel xz-devel zlib-devel bzip2-devel ncurses-devel gdbm-devel \
+RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-* && \
+    sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-* && \
+    yum install -y wget gcc make openssl-devel tk-devel xz-devel zlib-devel bzip2-devel ncurses-devel gdbm-devel \
         readline-devel sqlite-devel libffi-devel
 
 WORKDIR /temp
