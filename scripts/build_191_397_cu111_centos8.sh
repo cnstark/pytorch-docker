@@ -1,0 +1,10 @@
+export CENTOS_VERSION=8
+export CUDA_VERSION=11.1
+export CUDNN_VERSION=8
+export PYTHON_VERSION=3.9.7
+export PYTORCH_VERSION=1.9.1
+export PYTORCH_CUDA_VERSION=cu111
+export TORCHVISION_VERSION=0.10.1
+export TORCHAUDIO_VERSION=0.9.1
+
+./docker/centos-cuda/build.sh
