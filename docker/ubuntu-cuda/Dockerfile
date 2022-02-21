@@ -29,5 +29,5 @@ RUN rm -r /temp && \
     ln -s /usr/local/bin/python3 /usr/local/bin/python && \
     ln -s /usr/local/bin/pip3 /usr/local/bin/pip
 
-RUN pip install torch==${PYTORCH_VERSION}+${PYTORCH_CUDA_VERSION} torchvision==${TORCHVISION_VERSION}+${PYTORCH_CUDA_VERSION} torchaudio==${TORCHAUDIO_VERSION} -f https://download.pytorch.org/whl/torch_stable.html && \
+RUN pip install torch==${PYTORCH_VERSION}${PYTORCH_CUDA_VERSION} torchvision==${TORCHVISION_VERSION}${PYTORCH_CUDA_VERSION} torchaudio==${TORCHAUDIO_VERSION} -f https://download.pytorch.org/whl/torch_stable.html && \
     rm -r /root/.cache/pip
