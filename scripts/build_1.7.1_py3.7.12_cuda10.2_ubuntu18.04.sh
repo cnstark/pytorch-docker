@@ -1,0 +1,10 @@
+export UBUNTU_VERSION=18.04
+export CUDA_VERSION=10.2
+export CUDNN_VERSION=7
+export PYTORCH_CUDA_VERSION=
+export PYTHON_VERSION=3.7.12
+export PYTORCH_VERSION=1.7.1
+export TORCHVISION_VERSION=0.8.2
+export TORCHAUDIO_VERSION=0.7.2
+
+./docker/ubuntu-cuda/build.sh
