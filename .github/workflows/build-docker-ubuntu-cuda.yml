@@ -1,4 +1,4 @@
-name: Build Docker Image CI (ubuntu)
+name: Build Docker Image CI (ubuntu-cuda)
 on:
   push:
     branches:
