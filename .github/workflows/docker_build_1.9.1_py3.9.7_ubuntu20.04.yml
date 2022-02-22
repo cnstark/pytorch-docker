@@ -2,10 +2,16 @@ name: Build Docker Image CI (1.9.1_py3.9.7_ubuntu20.04)
 
 env:
   UBUNTU_VERSION: 20.04
+
   PYTHON_VERSION: 3.9.7
+
   PYTORCH_VERSION: 1.9.1
+  PYTORCH_VERSION_SUFFIX: +cpu
   TORCHVISION_VERSION: 0.10.1
+  TORCHVISION_VERSION_SUFFIX: +cpu
   TORCHAUDIO_VERSION: 0.9.1
+  TORCHAUDIO_VERSION_SUFFIX: ""
+  PYTORCH_DOWNLOAD_URL: https://download.pytorch.org/whl/torch_stable.html
 
 on:
   push:
