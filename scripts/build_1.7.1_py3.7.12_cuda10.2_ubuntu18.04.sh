@@ -1,3 +1,5 @@
+#!/bin/sh
+
 export UBUNTU_VERSION=18.04
 export CUDA_VERSION=10.2
 export CUDNN_VERSION=7

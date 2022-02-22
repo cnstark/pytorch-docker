@@ -1,3 +1,5 @@
+#!/bin/sh
+
 export UBUNTU_VERSION=20.04
 export CUDA_VERSION=11.3.1
 export CUDNN_VERSION=8

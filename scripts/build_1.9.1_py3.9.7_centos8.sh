@@ -1,3 +1,5 @@
+#!/bin/sh
+
 export CENTOS_VERSION=8
 
 export PYTHON_VERSION=3.9.7

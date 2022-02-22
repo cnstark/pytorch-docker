@@ -1,3 +1,5 @@
+#!/bin/sh
+
 export CENTOS_VERSION=8
 export CUDA_VERSION=11.1
 export CUDNN_VERSION=8

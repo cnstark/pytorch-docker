@@ -1,3 +1,5 @@
+#!/bin/sh
+
 export UBUNTU_VERSION=20.04
 
 export PYTHON_VERSION=3.8.12
