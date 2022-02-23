@@ -3,7 +3,11 @@ ARG UBUNTU_VERSION
 FROM ubuntu:${UBUNTU_VERSION}
 
 RUN apt update && \
-    apt install -y wget build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev libbz2-dev liblzma-dev
+    apt install -y \
+        wget build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev \
+        libreadline-dev libffi-dev libsqlite3-dev libbz2-dev liblzma-dev && \
+    apt clean && \
+    rm -rf /var/lib/apt/lists/*
 
 WORKDIR /temp
 
