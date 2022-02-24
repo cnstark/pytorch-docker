@@ -9,21 +9,15 @@ RUN apt update && \
     apt clean && \
     rm -rf /var/lib/apt/lists/*
 
-WORKDIR /temp
-
 ARG PYTHON_VERSION
 
-RUN wget https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz && \
-    tar -xvf Python-${PYTHON_VERSION}.tgz
-
-RUN cd Python-${PYTHON_VERSION} && \
+RUN mkdir /temp && cd /temp && \
+    wget https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz && \
+    tar -xvf Python-${PYTHON_VERSION}.tgz && \
+    cd Python-${PYTHON_VERSION} && \
     ./configure --enable-optimizations && \
-    make && \
-    make install
-
-WORKDIR /workspace
-
-RUN rm -r /temp && \
+    make && make install && \
+    cd / && rm -r /temp && \
     ln -s /usr/local/bin/python3 /usr/local/bin/python && \
     ln -s /usr/local/bin/pip3 /usr/local/bin/pip
 
@@ -55,3 +49,5 @@ RUN if [ ! $TORCHAUDIO_VERSION ]; \
             -f ${PYTORCH_DOWNLOAD_URL}; \
     fi && \
     rm -r /root/.cache/pip
+
+WORKDIR /workspace
