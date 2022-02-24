@@ -35,17 +35,23 @@ ARG TORCHAUDIO_VERSION
 ARG TORCHAUDIO_VERSION_SUFFIX
 ARG PYTORCH_DOWNLOAD_URL
 
-RUN if [ ! $PYTORCH_DOWNLOAD_URL ]; \
+RUN if [ ! $TORCHAUDIO_VERSION ]; \
+    then \
+        TORCHAUDIO=; \
+    else \
+        TORCHAUDIO=torchaudio==${TORCHAUDIO_VERSION}${TORCHAUDIO_VERSION_SUFFIX}; \
+    fi && \
+    if [ ! $PYTORCH_DOWNLOAD_URL ]; \
     then \
         pip install \
             torch==${PYTORCH_VERSION}${PYTORCH_VERSION_SUFFIX} \
             torchvision==${TORCHVISION_VERSION}${TORCHVISION_VERSION_SUFFIX} \
-            torchaudio==${TORCHAUDIO_VERSION}${TORCHAUDIO_VERSION_SUFFIX}; \
+            ${TORCHAUDIO}; \
     else \
         pip install \
             torch==${PYTORCH_VERSION}${PYTORCH_VERSION_SUFFIX} \
             torchvision==${TORCHVISION_VERSION}${TORCHVISION_VERSION_SUFFIX} \
-            torchaudio==${TORCHAUDIO_VERSION}${TORCHAUDIO_VERSION_SUFFIX} \
+            ${TORCHAUDIO} \
             -f ${PYTORCH_DOWNLOAD_URL}; \
     fi && \
     rm -r /root/.cache/pip

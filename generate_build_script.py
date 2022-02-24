@@ -121,6 +121,24 @@ PYTORCH_VERSIONS = {
             'https://download.pytorch.org/whl/torch_stable.html',
         ],
     },
+    '1.6.0': {
+        'cpu': [
+            '1.6.0', 'cpu', '0.7.0', 'cpu', '', '',
+            'https://download.pytorch.org/whl/torch_stable.html',
+        ],
+        '9.2': [
+            '1.6.0', 'cu92', '0.7.0', 'cu92', '', '',
+            'https://download.pytorch.org/whl/torch_stable.html',
+        ],
+        '10.1': [
+            '1.6.0', 'cu101', '0.7.0', 'cu101', '', '',
+            'https://download.pytorch.org/whl/torch_stable.html',
+        ],
+        '10.2': [
+            '1.6.0', '', '0.8.0', '', '0.7.0', '',
+            '',
+        ],
+    },
 }
 
 
