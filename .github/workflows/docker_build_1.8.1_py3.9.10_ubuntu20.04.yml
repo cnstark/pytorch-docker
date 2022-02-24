@@ -1,0 +1,37 @@
+name: Build Docker Image CI (1.8.1_py3.9.10_ubuntu20.04)
+
+env:
+  UBUNTU_VERSION: "20.04"
+
+  PYTHON_VERSION: "3.9.10"
+
+  PYTORCH_VERSION: "1.8.1"
+  PYTORCH_VERSION_SUFFIX: "+cpu"
+  TORCHVISION_VERSION: "0.9.1"
+  TORCHVISION_VERSION_SUFFIX: "+cpu"
+  TORCHAUDIO_VERSION: "0.8.1"
+  TORCHAUDIO_VERSION_SUFFIX: ""
+  PYTORCH_DOWNLOAD_URL: "https://download.pytorch.org/whl/torch_stable.html"
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'docker/ubuntu/**'
+      - '.github/workflows/docker_build_1.8.1_py3.9.10_ubuntu20.04.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Login DockerHub
+        run: docker login --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build docker image
+        run: docker/ubuntu/build.sh
+
+      - name: Push docker image
+        run: docker push yuhaow/pytorch:${PYTORCH_VERSION}-py${PYTHON_VERSION}-ubuntu${UBUNTU_VERSION}
