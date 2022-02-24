@@ -92,3 +92,6 @@ If you want to build and release specific versions using github actions, you can
 | 1.7.1 | cpu, 11.0, 10.2, 10.1, 9.2 |
 | 1.7.0 | cpu, 11.0, 10.2, 10.1, 9.2 |
 | 1.6.0 | cpu, 10.2, 10.1, 9.2 |
+| 1.5.1 | cpu, 10.2, 10.1, 9.2 |
+| 1.5.0 | cpu, 10.2, 10.1, 9.2 |
+| 1.4.0 | cpu, 10.1, 9.2 |
