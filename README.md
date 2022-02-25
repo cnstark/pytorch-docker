@@ -1,6 +1,6 @@
 # Pytorch Docker Images
 
-[DockerHub]: https://hub.docker.com/repository/docker/yuhaow/pytorch
+[DockerHub]: https://hub.docker.com/r/yuhaow/pytorch
 
 [![LICENSE](https://img.shields.io/github/license/cnstark/pytorch_docker.svg)](https://github.com/cnstark/pytorch_docker/blob/master/LICENSE)
 [![Docker Stars](https://img.shields.io/docker/stars/yuhaow/pytorch?logo=docker)][DockerHub]
@@ -8,7 +8,9 @@
 
 Pure pytorch docker images with different os, cuda, and python versions.
 
-Docker Hub: https://hub.docker.com/repository/docker/yuhaow/pytorch
+Github: https://github.com/cnstark/pytorch_docker
+
+Docker Hub: https://hub.docker.com/r/yuhaow/pytorch
 
 ## Image List (More images are on the way ~)
 
