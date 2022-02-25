@@ -189,6 +189,20 @@ PYTORCH_VERSIONS = {
             '',
         ],
     },
+    '1.2.0': {
+        'cpu': [
+            '1.2.0', 'cpu', '0.4.0', 'cpu', '', '',
+            'https://download.pytorch.org/whl/torch_stable.html',
+        ],
+        '9.2': [
+            '1.2.0', 'cu92', '0.4.0', 'cu92', '', '',
+            'https://download.pytorch.org/whl/torch_stable.html',
+        ],
+        '10.0': [
+            '1.2.0', '', '0.5.0', '', '', '',
+            '',
+        ],
+    },
 }
 
 
@@ -203,6 +217,12 @@ CUDA_VERSIONS = {
         'version_name': '9.2',
         'cudnn': '7',
         'ubuntu_available': ['16.04', '18.04'],
+        'centos_available': ['6', '7'],
+    },
+    '10.0': {
+        'version_name': '10.0',
+        'cudnn': '7',
+        'ubuntu_available': ['14.04', '16.04', '18.04'],
         'centos_available': ['6', '7'],
     },
     '10.1': {

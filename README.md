@@ -23,6 +23,7 @@ Docker Hub: https://hub.docker.com/r/yuhaow/pytorch
 [CUDA11.0]: https://img.shields.io/badge/CUDA-11.0-green?logo=nvidia
 [CUDA10.2]: https://img.shields.io/badge/CUDA-10.2-green?logo=nvidia
 [CUDA10.1]: https://img.shields.io/badge/CUDA-10.1-green?logo=nvidia
+[CUDA10.0]: https://img.shields.io/badge/CUDA-10.0-green?logo=nvidia
 [CPU]: https://img.shields.io/badge/CPU-amd64-lightgray
 
 | Pytorch | Python | CUDA | OS | Status | Pull command
@@ -58,6 +59,8 @@ Docker Hub: https://hub.docker.com/r/yuhaow/pytorch
 | 1.5.0 | 3.8.12 | ![CPU] | ![Ubuntu18.04] | [![](https://img.shields.io/github/workflow/status/cnstark/pytorch_docker/Build%20Docker%20Image%20CI%20(1.5.0_py3.8.12_ubuntu18.04)?logo=docker)][DockerHub] | `docker pull yuhaow/pytorch:1.5.0-py3.8.12-ubuntu18.04` |
 | 1.4.0 | 3.8.12 | ![CUDA10.1] | ![Ubuntu18.04] | [![](https://img.shields.io/github/workflow/status/cnstark/pytorch_docker/Build%20Docker%20Image%20CI%20(1.4.0_py3.8.12_cuda10.1_ubuntu18.04)?logo=docker)][DockerHub] | `docker pull yuhaow/pytorch:1.4.0-py3.8.12-cuda10.1-ubuntu18.04` |
 | 1.4.0 | 3.8.12 | ![CPU] | ![Ubuntu18.04] | [![](https://img.shields.io/github/workflow/status/cnstark/pytorch_docker/Build%20Docker%20Image%20CI%20(1.4.0_py3.8.12_ubuntu18.04)?logo=docker)][DockerHub] | `docker pull yuhaow/pytorch:1.4.0-py3.8.12-ubuntu18.04` |
+| 1.2.0 | 3.7.12 | ![CUDA10.0] | ![Ubuntu18.04] | [![](https://img.shields.io/github/workflow/status/cnstark/pytorch_docker/Build%20Docker%20Image%20CI%20(1.2.0_py3.7.12_cuda10.0_ubuntu18.04)?logo=docker)][DockerHub] | `docker pull yuhaow/pytorch:1.2.0-py3.7.12-cuda10.0-ubuntu18.04` |
+| 1.2.0 | 3.7.12 | ![CPU] | ![Ubuntu18.04] | [![](https://img.shields.io/github/workflow/status/cnstark/pytorch_docker/Build%20Docker%20Image%20CI%20(1.2.0_py3.7.12_ubuntu18.04)?logo=docker)][DockerHub] | `docker pull yuhaow/pytorch:1.2.0-py3.7.12-ubuntu18.04` |
 
 ## Other Images
 
@@ -101,7 +104,7 @@ If you want to build and release specific versions using github actions, you can
 | OS | OS version |
 | - | - |
 | Ubuntu | 20.04, 18.04, 16.04, 14.04 |
-| CentOS | 8, 7, 6|
+| CentOS | 8, 7, 6 |
 
 ### CUDA Versions
 
@@ -113,6 +116,7 @@ If you want to build and release specific versions using github actions, you can
 | 11.0 | 8 | Ubuntu(18.04, 16.04), CentOS(8, 7) |
 | 10.2 | 7 | Ubuntu(18.04, 16.04), CentOS(8, 7, 6) |
 | 10.1 | 7 | Ubuntu(18.04, 16.04, 14.04), CentOS(7, 6) |
+| 10.0 | 7 | Ubuntu(18.04, 16.04, 14.04), CentOS(7, 6) |
 | 9.2 | 7 | Ubuntu(16.04, 14.04), CentOS(7, 6) |
 
 ### Pytorch Versions
@@ -130,3 +134,4 @@ If you want to build and release specific versions using github actions, you can
 | 1.5.1 | cpu, 10.2, 10.1, 9.2 |
 | 1.5.0 | cpu, 10.2, 10.1, 9.2 |
 | 1.4.0 | cpu, 10.1, 9.2 |
+| 1.2.0 | cpu, 10.0, 9.2 |
