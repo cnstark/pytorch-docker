@@ -9,6 +9,6 @@ docker build \
     --build-arg TORCHVISION_VERSION_SUFFIX=${TORCHVISION_VERSION_SUFFIX} \
     --build-arg TORCHAUDIO_VERSION=${TORCHAUDIO_VERSION} \
     --build-arg PYTORCH_DOWNLOAD_URL=${PYTORCH_DOWNLOAD_URL} \
-    -t yuhaow/pytorch:${PYTORCH_VERSION}-py${PYTHON_VERSION}-cuda${CUDA_VERSION}-ubuntu${UBUNTU_VERSION} \
+    -t cnstark/pytorch:${PYTORCH_VERSION}-py${PYTHON_VERSION}-cuda${CUDA_VERSION}-ubuntu${UBUNTU_VERSION} \
     -f docker/ubuntu-cuda/Dockerfile \
     .

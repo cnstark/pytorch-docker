@@ -388,7 +388,7 @@ jobs:
         run: docker/ubuntu/build.sh
 
       - name: Push docker image
-        run: docker push yuhaow/pytorch:${{PYTORCH_VERSION}}-py${{PYTHON_VERSION}}-ubuntu${{UBUNTU_VERSION}}
+        run: docker push cnstark/pytorch:${{PYTORCH_VERSION}}-py${{PYTHON_VERSION}}-ubuntu${{UBUNTU_VERSION}}
 """
 
 
@@ -430,7 +430,7 @@ jobs:
         run: docker/ubuntu-cuda/build.sh
 
       - name: Push docker image
-        run: docker push yuhaow/pytorch:${{PYTORCH_VERSION}}-py${{PYTHON_VERSION}}-cuda${{CUDA_VERSION}}-ubuntu${{UBUNTU_VERSION}}
+        run: docker push cnstark/pytorch:${{PYTORCH_VERSION}}-py${{PYTHON_VERSION}}-cuda${{CUDA_VERSION}}-ubuntu${{UBUNTU_VERSION}}
 """
 
 
@@ -470,7 +470,7 @@ jobs:
         run: docker/centos/build.sh
 
       - name: Push docker image
-        run: docker push yuhaow/pytorch:${{PYTORCH_VERSION}}-py${{PYTHON_VERSION}}-centos${{CENTOS_VERSION}}
+        run: docker push cnstark/pytorch:${{PYTORCH_VERSION}}-py${{PYTHON_VERSION}}-centos${{CENTOS_VERSION}}
 """
 
 
@@ -512,7 +512,7 @@ jobs:
         run: docker/centos-cuda/build.sh
 
       - name: Push docker image
-        run: docker push yuhaow/pytorch:${{PYTORCH_VERSION}}-py${{PYTHON_VERSION}}-cuda${{CUDA_VERSION}}-centos${{CENTOS_VERSION}}
+        run: docker push cnstark/pytorch:${{PYTORCH_VERSION}}-py${{PYTHON_VERSION}}-cuda${{CUDA_VERSION}}-centos${{CENTOS_VERSION}}
 """
 
 

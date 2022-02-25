@@ -10,6 +10,6 @@ docker build \
     --build-arg TORCHAUDIO_VERSION=${TORCHAUDIO_VERSION} \
     --build-arg TORCHAUDIO_VERSION_SUFFIX=${TORCHAUDIO_VERSION_SUFFIX} \
     --build-arg PYTORCH_DOWNLOAD_URL=${PYTORCH_DOWNLOAD_URL} \
-    -t yuhaow/pytorch:${PYTORCH_VERSION}-py${PYTHON_VERSION}-cuda${CUDA_VERSION}-centos${CENTOS_VERSION} \
+    -t cnstark/pytorch:${PYTORCH_VERSION}-py${PYTHON_VERSION}-cuda${CUDA_VERSION}-centos${CENTOS_VERSION} \
     -f docker/centos-cuda/Dockerfile \
     .
