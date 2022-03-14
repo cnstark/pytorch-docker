@@ -28,6 +28,8 @@ Docker Hub: https://hub.docker.com/r/cnstark/pytorch
 
 | Pytorch | Python | CUDA | OS | Status | Pull command
 |-|-|-|-|-|-|
+| 1.11.0 | 3.9.10 | ![CUDA11.3] | ![Ubuntu20.04] | [![](https://img.shields.io/github/workflow/status/cnstark/pytorch_docker/Build%20Docker%20Image%20CI%20(1.11.0_py3.9.10_cuda11.3.1_ubuntu20.04)?logo=docker)][DockerHub] | `docker pull cnstark/pytorch:1.11.0-py3.9.10-cuda11.3.1-ubuntu20.04` |
+| 1.11.0 | 3.9.10 | ![CPU] | ![Ubuntu20.04] | [![](https://img.shields.io/github/workflow/status/cnstark/pytorch_docker/Build%20Docker%20Image%20CI%20(1.11.0_py3.9.10_ubuntu20.04)?logo=docker)][DockerHub] | `docker pull cnstark/pytorch:1.11.0-py3.9.10-ubuntu20.04` |
 | 1.10.2 | 3.9.10 | ![CUDA11.3] | ![Ubuntu20.04] | [![](https://img.shields.io/github/workflow/status/cnstark/pytorch_docker/Build%20Docker%20Image%20CI%20(1.10.2_py3.9.10_cuda11.3.1_ubuntu20.04)?logo=docker)][DockerHub] | `docker pull cnstark/pytorch:1.10.2-py3.9.10-cuda11.3.1-ubuntu20.04` |
 | 1.10.2 | 3.9.10 | ![CPU] | ![Ubuntu20.04] | [![](https://img.shields.io/github/workflow/status/cnstark/pytorch_docker/Build%20Docker%20Image%20CI%20(1.10.2_py3.9.10_ubuntu20.04)?logo=docker)][DockerHub] | `docker pull cnstark/pytorch:1.10.2-py3.9.10-ubuntu20.04` |
 | 1.10.2 | 3.8.12 | ![CUDA11.3] | ![Ubuntu20.04] | [![](https://img.shields.io/github/workflow/status/cnstark/pytorch_docker/Build%20Docker%20Image%20CI%20(1.10.2_py3.8.12_cuda11.3.1_ubuntu20.04)?logo=docker)][DockerHub] | `docker pull cnstark/pytorch:1.10.2-py3.8.12-cuda11.3.1-ubuntu20.04` |
@@ -123,6 +125,7 @@ If you want to build and release specific versions using github actions, you can
 
 | Version | CUDA/CPU |
 | - | - |
+| 1.11.0 | cpu, 11.3, 10.2 |
 | 1.10.2 | cpu, 11.3, 10.2 |
 | 1.9.1 | cpu, 11.1, 10.2 |
 | 1.9.0 | cpu, 11.1, 10.2 |
