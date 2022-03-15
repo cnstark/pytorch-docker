@@ -1,14 +1,17 @@
-name: Build(1.7.1_py3.9.10_ubuntu18.04)
+name: Build(1.7.1_py3.9.10_cuda11.0_runtime_ubuntu18.04)
 
 env:
   UBUNTU_VERSION: "18.04"
+  CUDA_VERSION: "11.0"
+  CUDNN_VERSION: "8"
+  CUDA_FLAVOR: "runtime"
 
   PYTHON_VERSION: "3.9.10"
 
   PYTORCH_VERSION: "1.7.1"
-  PYTORCH_VERSION_SUFFIX: "+cpu"
+  PYTORCH_VERSION_SUFFIX: "+cu110"
   TORCHVISION_VERSION: "0.8.2"
-  TORCHVISION_VERSION_SUFFIX: "+cpu"
+  TORCHVISION_VERSION_SUFFIX: "+cu110"
   TORCHAUDIO_VERSION: "0.7.2"
   TORCHAUDIO_VERSION_SUFFIX: ""
   PYTORCH_DOWNLOAD_URL: "https://download.pytorch.org/whl/torch_stable.html"
@@ -18,8 +21,8 @@ on:
     branches:
       - main
     paths:
-      - 'docker/ubuntu/**'
-      - '.github/workflows/docker_build_1.7.1_py3.9.10_ubuntu18.04.yml'
+      - 'docker/ubuntu-cuda/**'
+      - '.github/workflows/docker_build_1.7.1_py3.9.10_cuda11.0_runtime_ubuntu18.04.yml'
 
 jobs:
   build:
@@ -31,7 +34,7 @@ jobs:
         run: docker login --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build docker image
-        run: docker/ubuntu/build.sh
+        run: docker/ubuntu-cuda/build.sh
 
       - name: Push docker image
-        run: docker push cnstark/pytorch:${PYTORCH_VERSION}-py${PYTHON_VERSION}-ubuntu${UBUNTU_VERSION}
+        run: docker push cnstark/pytorch:${PYTORCH_VERSION}-py${PYTHON_VERSION}-cuda${CUDA_VERSION}-${CUDA_FLAVOR}-ubuntu${UBUNTU_VERSION}

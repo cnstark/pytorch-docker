@@ -1,4 +1,5 @@
 import os
+import csv
 from argparse import ArgumentParser
 
 
@@ -301,6 +302,7 @@ BUILD_SH_TEMPLATE_UBUNTU_CUDA = """#!/bin/sh
 export UBUNTU_VERSION={os_version}
 export CUDA_VERSION={cuda_version}
 export CUDNN_VERSION={cudnn_version}
+export CUDA_FLAVOR={cuda_flavor}
 
 export PYTHON_VERSION={python_version}
 
@@ -339,6 +341,7 @@ BUILD_SH_TEMPLATE_CENTOS_CUDA = """#!/bin/sh
 export CENTOS_VERSION={os_version}
 export CUDA_VERSION={cuda_version}
 export CUDNN_VERSION={cudnn_version}
+export CUDA_FLAVOR={cuda_flavor}
 
 export PYTHON_VERSION={python_version}
 
@@ -366,7 +369,7 @@ BUILD_SH_TEMPLATE = {
 }
 
 
-GITHUB_BUILD_YML_TEMPLATE_UBUNTU = """name: Build Docker Image CI ({name})
+GITHUB_BUILD_YML_TEMPLATE_UBUNTU = """name: Build({name})
 
 env:
   UBUNTU_VERSION: "{os_version}"
@@ -406,12 +409,13 @@ jobs:
 """
 
 
-GITHUB_BUILD_YML_TEMPLATE_UBUNTU_CUDA = """name: Build Docker Image CI ({name})
+GITHUB_BUILD_YML_TEMPLATE_UBUNTU_CUDA = """name: Build({name})
 
 env:
   UBUNTU_VERSION: "{os_version}"
   CUDA_VERSION: "{cuda_version}"
   CUDNN_VERSION: "{cudnn_version}"
+  CUDA_FLAVOR: "{cuda_flavor}"
 
   PYTHON_VERSION: "{python_version}"
 
@@ -444,11 +448,11 @@ jobs:
         run: docker/ubuntu-cuda/build.sh
 
       - name: Push docker image
-        run: docker push cnstark/pytorch:${{PYTORCH_VERSION}}-py${{PYTHON_VERSION}}-cuda${{CUDA_VERSION}}-ubuntu${{UBUNTU_VERSION}}
+        run: docker push cnstark/pytorch:${{PYTORCH_VERSION}}-py${{PYTHON_VERSION}}-cuda${{CUDA_VERSION}}-${{CUDA_FLAVOR}}-ubuntu${{UBUNTU_VERSION}}
 """
 
 
-GITHUB_BUILD_YML_TEMPLATE_CENTOS = """name: Build Docker Image CI ({name})
+GITHUB_BUILD_YML_TEMPLATE_CENTOS = """name: Build({name})
 
 env:
   CENTOS_VERSION: "{os_version}"
@@ -488,12 +492,13 @@ jobs:
 """
 
 
-GITHUB_BUILD_YML_TEMPLATE_CENTOS_CUDA = """name: Build Docker Image CI ({name})
+GITHUB_BUILD_YML_TEMPLATE_CENTOS_CUDA = """name: Build({name})
 
 env:
   CENTOS_VERSION: "{os_version}"
   CUDA_VERSION: "{cuda_version}"
   CUDNN_VERSION: "{cudnn_version}"
+  CUDA_FLAVOR: "{cuda_flavor}"
 
   PYTHON_VERSION: "{python_version}"
 
@@ -526,7 +531,7 @@ jobs:
         run: docker/centos-cuda/build.sh
 
       - name: Push docker image
-        run: docker push cnstark/pytorch:${{PYTORCH_VERSION}}-py${{PYTHON_VERSION}}-cuda${{CUDA_VERSION}}-centos${{CENTOS_VERSION}}
+        run: docker push cnstark/pytorch:${{PYTORCH_VERSION}}-py${{PYTHON_VERSION}}-cuda${{CUDA_VERSION}}-${{CUDA_FLAVOR}}-centos${{CENTOS_VERSION}}
 """
 
 
@@ -541,8 +546,7 @@ GITHUB_BUILD_YML_TEMPLATE = {
     },
 }
 
-
-def generate_build_sh(os_name, os_version, python_version, pytorch_version, cuda_version, save_dir='scripts'):
+def generate_build_sh(os_name, os_version, python_version, pytorch_version, cuda_version, cuda_flavor='runtime', save_dir='scripts'):
     if os_version not in OS_VERSIONS[os_name]:
         raise ValueError(f'OS {os_name} {os_version} is not available')
     template = BUILD_SH_TEMPLATE[os_name]['cpu' if cuda_version == 'cpu' else 'cuda']
@@ -556,11 +560,14 @@ def generate_build_sh(os_name, os_version, python_version, pytorch_version, cuda
     else:
         if os_version not in CUDA_VERSIONS[cuda_version][os_name + '_available']:
             raise ValueError(f'CUDA {cuda_version} is not available in {os_name} {os_version}!')
+        if cuda_flavor not in ('runtime', 'devel'):
+            raise ValueError(f'CUDA flavor is not available!')
         kwargs['cuda_version'] = CUDA_VERSIONS[cuda_version]['version_name']
         kwargs['cudnn_version'] = CUDA_VERSIONS[cuda_version]['cudnn']
+        kwargs['cuda_flavor'] = cuda_flavor
 
-        img_name = '{}_py{}_cuda{}_{}{}'.format(
-            pytorch_version, python_version, CUDA_VERSIONS[cuda_version]['version_name'], os_name, os_version
+        img_name = '{}_py{}_cuda{}_{}_{}{}'.format(
+            pytorch_version, python_version, CUDA_VERSIONS[cuda_version]['version_name'], cuda_flavor, os_name, os_version
         )
 
     pytorch_args = PYTORCH_VERSIONS[pytorch_version][cuda_version].copy()
@@ -577,7 +584,7 @@ def generate_build_sh(os_name, os_version, python_version, pytorch_version, cuda
     os.system('chmod +x {}'.format(file_path))
 
 
-def generate_github_build_yml(os_name, os_version, python_version, pytorch_version, cuda_version, save_dir='.github/workflows'):
+def generate_github_build_yml(os_name, os_version, python_version, pytorch_version, cuda_version, cuda_flavor='runtime', save_dir='.github/workflows'):
     if os_version not in OS_VERSIONS[os_name]:
         raise ValueError(f'OS {os_name} {os_version} is not available')
     template = GITHUB_BUILD_YML_TEMPLATE[os_name]['cpu' if cuda_version == 'cpu' else 'cuda']
@@ -592,11 +599,14 @@ def generate_github_build_yml(os_name, os_version, python_version, pytorch_versi
     else:
         if os_version not in CUDA_VERSIONS[cuda_version][os_name + '_available']:
             raise ValueError(f'CUDA {cuda_version} is not available in {os_name} {os_version}!')
+        if cuda_flavor not in ('runtime', 'devel'):
+            raise ValueError(f'CUDA flavor is not available!')
         kwargs['cuda_version'] = CUDA_VERSIONS[cuda_version]['version_name']
         kwargs['cudnn_version'] = CUDA_VERSIONS[cuda_version]['cudnn']
+        kwargs['cuda_flavor'] = cuda_flavor
 
-        img_name = '{}_py{}_cuda{}_{}{}'.format(
-            pytorch_version, python_version, CUDA_VERSIONS[cuda_version]['version_name'], os_name, os_version
+        img_name = '{}_py{}_cuda{}_{}_{}{}'.format(
+            pytorch_version, python_version, CUDA_VERSIONS[cuda_version]['version_name'], cuda_flavor, os_name, os_version
         )
         kwargs['name'] = img_name
 
@@ -619,10 +629,11 @@ def parse_args():
     parser.add_argument('--python', help='Python version.', required=True)
     parser.add_argument('--pytorch', help='Pytorch version.', required=True)
     parser.add_argument('--cuda', help='CUDA version, `cpu` means CPU version.', default='cpu')
+    parser.add_argument('--cuda-flavor', help='CUDA flavor, `runtime` or `devel`', default='runtime')
     return parser.parse_args()
 
 
 if __name__ == '__main__':
     args = parse_args()
-    generate_build_sh(args.os, args.os_version, args.python, args.pytorch, args.cuda)
-    generate_github_build_yml(args.os, args.os_version, args.python, args.pytorch, args.cuda)
+    generate_build_sh(args.os, args.os_version, args.python, args.pytorch, args.cuda, args.cuda_flavor)
+    generate_github_build_yml(args.os, args.os_version, args.python, args.pytorch, args.cuda, args.cuda_flavor)

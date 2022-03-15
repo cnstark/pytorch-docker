@@ -1,4 +1,4 @@
-name: Build Docker Image CI (1.2.0_py3.7.12_ubuntu18.04)
+name: Build(1.2.0_py3.7.12_ubuntu18.04)
 
 env:
   UBUNTU_VERSION: "18.04"

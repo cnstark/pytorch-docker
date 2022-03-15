@@ -1,8 +1,9 @@
 ARG UBUNTU_VERSION
 ARG CUDA_VERSION
 ARG CUDNN_VERSION
+ARG CUDA_FLAVOR
 
-FROM nvidia/cuda:${CUDA_VERSION}-cudnn${CUDNN_VERSION}-runtime-ubuntu${UBUNTU_VERSION}
+FROM nvidia/cuda:${CUDA_VERSION}-cudnn${CUDNN_VERSION}-${CUDA_FLAVOR}-ubuntu${UBUNTU_VERSION}
 
 RUN apt update && \
     apt install -y \

@@ -1,4 +1,4 @@
-name: Build Docker Image CI (1.11.0_py3.9.10_ubuntu20.04)
+name: Build(1.11.0_py3.9.10_ubuntu20.04)
 
 env:
   UBUNTU_VERSION: "20.04"
