@@ -26,7 +26,9 @@ jobs:
         run: docker login --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build docker image
-        run: docker/ubuntu/build.sh
+        run: | 
+          docker/ubuntu/build.sh
+          docker tag cnstark/pytorch:${PYTORCH_VERSION}-py${PYTHON_VERSION}-ubuntu${UBUNTU_VERSION} cnstark/pytorch:${PYTORCH_VERSION}-py${PYTHON_VERSION}-ubuntu${UBUNTU_VERSION}-test
 
       - name: Push docker image
         run: docker push cnstark/pytorch:${PYTORCH_VERSION}-py${PYTHON_VERSION}-ubuntu${UBUNTU_VERSION}-test
