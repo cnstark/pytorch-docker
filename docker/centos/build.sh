@@ -1,5 +1,5 @@
 docker build \
-    --build-arg CENTOS_VERSION=${CENTOS_VERSION} \
+    --build-arg BASE_IMAGE=${BASE_IMAGE} \
     --build-arg PYTHON_VERSION=${PYTHON_VERSION} \
     --build-arg PYTORCH_VERSION=${PYTORCH_VERSION} \
     --build-arg PYTORCH_VERSION_SUFFIX=${PYTORCH_VERSION_SUFFIX} \
@@ -8,6 +8,6 @@ docker build \
     --build-arg TORCHAUDIO_VERSION=${TORCHAUDIO_VERSION} \
     --build-arg TORCHAUDIO_VERSION_SUFFIX=${TORCHAUDIO_VERSION_SUFFIX} \
     --build-arg PYTORCH_DOWNLOAD_URL=${PYTORCH_DOWNLOAD_URL} \
-    -t cnstark/pytorch:${PYTORCH_VERSION}-py${PYTHON_VERSION}-centos${CENTOS_VERSION} \
+    -t cnstark/pytorch:${IMAGE_TAG} \
     -f docker/centos/Dockerfile \
     .

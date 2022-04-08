@@ -1,6 +1,6 @@
-ARG CENTOS_VERSION
+ARG BASE_IMAGE
 
-FROM centos:${CENTOS_VERSION}
+FROM ${BASE_IMAGE}
 
 RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-* && \
     sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-* && \
@@ -9,13 +9,13 @@ RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-* && \
 
 ARG PYTHON_VERSION
 
-RUN mkdir /temp && cd /temp && \
+RUN cd /tmp && \
     wget https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz && \
     tar -xvf Python-${PYTHON_VERSION}.tgz && \
     cd Python-${PYTHON_VERSION} && \
     ./configure --enable-optimizations && \
     make && make install && \
-    cd / && rm -r /temp && \
+    cd .. && rm -r Python-${PYTHON_VERSION} && \
     ln -s /usr/local/bin/python3 /usr/local/bin/python && \
     ln -s /usr/local/bin/pip3 /usr/local/bin/pip
 

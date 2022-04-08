@@ -1,9 +1,9 @@
-ARG UBUNTU_VERSION
+ARG BASE_IMAGE
 
-FROM ubuntu:${UBUNTU_VERSION}
+FROM ${BASE_IMAGE}
 
 RUN apt update && \
-    apt install -y \
+    apt install -y --no-install-recommends \
         wget build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev \
         libreadline-dev libffi-dev libsqlite3-dev libbz2-dev liblzma-dev && \
     apt clean && \
@@ -11,13 +11,13 @@ RUN apt update && \
 
 ARG PYTHON_VERSION
 
-RUN mkdir /temp && cd /temp && \
+RUN cd /tmp && \
     wget https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz && \
     tar -xvf Python-${PYTHON_VERSION}.tgz && \
     cd Python-${PYTHON_VERSION} && \
     ./configure --enable-optimizations && \
     make && make install && \
-    cd / && rm -r /temp && \
+    cd .. && rm -r Python-${PYTHON_VERSION} && \
     ln -s /usr/local/bin/python3 /usr/local/bin/python && \
     ln -s /usr/local/bin/pip3 /usr/local/bin/pip
 
