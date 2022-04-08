@@ -1,5 +1,4 @@
 import os
-import csv
 from argparse import ArgumentParser
 
 
@@ -281,7 +280,7 @@ CUDA_VERSIONS = {
 
 BUILD_SH_TEMPLATE_UBUNTU = """#!/bin/sh
 
-export UBUNTU_VERSION={os_version}
+export BASE_IMAGE={base_image}
 
 export PYTHON_VERSION={python_version}
 
@@ -292,35 +291,16 @@ export TORCHVISION_VERSION_SUFFIX={}
 export TORCHAUDIO_VERSION={}
 export TORCHAUDIO_VERSION_SUFFIX={}
 export PYTORCH_DOWNLOAD_URL={}
+
+export IMAGE_TAG={image_tag}
 
 ./docker/ubuntu/build.sh
 """
 
 
-BUILD_SH_TEMPLATE_UBUNTU_CUDA = """#!/bin/sh
-
-export UBUNTU_VERSION={os_version}
-export CUDA_VERSION={cuda_version}
-export CUDNN_VERSION={cudnn_version}
-export CUDA_FLAVOR={cuda_flavor}
-
-export PYTHON_VERSION={python_version}
-
-export PYTORCH_VERSION={}
-export PYTORCH_VERSION_SUFFIX={}
-export TORCHVISION_VERSION={}
-export TORCHVISION_VERSION_SUFFIX={}
-export TORCHAUDIO_VERSION={}
-export TORCHAUDIO_VERSION_SUFFIX={}
-export PYTORCH_DOWNLOAD_URL={}
-
-./docker/ubuntu-cuda/build.sh
-"""
-
-
 BUILD_SH_TEMPLATE_CENTOS = """#!/bin/sh
 
-export CENTOS_VERSION={os_version}
+export BASE_IMAGE={base_image}
 
 export PYTHON_VERSION={python_version}
 
@@ -331,48 +311,23 @@ export TORCHVISION_VERSION_SUFFIX={}
 export TORCHAUDIO_VERSION={}
 export TORCHAUDIO_VERSION_SUFFIX={}
 export PYTORCH_DOWNLOAD_URL={}
+
+export IMAGE_TAG={image_tag}
 
 ./docker/centos/build.sh
 """
 
 
-BUILD_SH_TEMPLATE_CENTOS_CUDA = """#!/bin/sh
-
-export CENTOS_VERSION={os_version}
-export CUDA_VERSION={cuda_version}
-export CUDNN_VERSION={cudnn_version}
-export CUDA_FLAVOR={cuda_flavor}
-
-export PYTHON_VERSION={python_version}
-
-export PYTORCH_VERSION={}
-export PYTORCH_VERSION_SUFFIX={}
-export TORCHVISION_VERSION={}
-export TORCHVISION_VERSION_SUFFIX={}
-export TORCHAUDIO_VERSION={}
-export TORCHAUDIO_VERSION_SUFFIX={}
-export PYTORCH_DOWNLOAD_URL={}
-
-./docker/centos-cuda/build.sh
-"""
-
-
 BUILD_SH_TEMPLATE = {
-    'ubuntu': {
-        'cpu': BUILD_SH_TEMPLATE_UBUNTU,
-        'cuda': BUILD_SH_TEMPLATE_UBUNTU_CUDA,
-    },
-    'centos': {
-        'cpu': BUILD_SH_TEMPLATE_CENTOS,
-        'cuda': BUILD_SH_TEMPLATE_CENTOS_CUDA,
-    },
+    'ubuntu': BUILD_SH_TEMPLATE_UBUNTU,
+    'centos': BUILD_SH_TEMPLATE_CENTOS,
 }
 
 
 GITHUB_BUILD_YML_TEMPLATE_UBUNTU = """name: Build({name})
 
 env:
-  UBUNTU_VERSION: "{os_version}"
+  BASE_IMAGE: "{base_image}"
 
   PYTHON_VERSION: "{python_version}"
 
@@ -383,6 +338,8 @@ env:
   TORCHAUDIO_VERSION: "{}"
   TORCHAUDIO_VERSION_SUFFIX: "{}"
   PYTORCH_DOWNLOAD_URL: "{}"
+
+  IMAGE_TAG: "{image_tag}"
 
 on:
   push:
@@ -409,53 +366,10 @@ jobs:
 """
 
 
-GITHUB_BUILD_YML_TEMPLATE_UBUNTU_CUDA = """name: Build({name})
-
-env:
-  UBUNTU_VERSION: "{os_version}"
-  CUDA_VERSION: "{cuda_version}"
-  CUDNN_VERSION: "{cudnn_version}"
-  CUDA_FLAVOR: "{cuda_flavor}"
-
-  PYTHON_VERSION: "{python_version}"
-
-  PYTORCH_VERSION: "{}"
-  PYTORCH_VERSION_SUFFIX: "{}"
-  TORCHVISION_VERSION: "{}"
-  TORCHVISION_VERSION_SUFFIX: "{}"
-  TORCHAUDIO_VERSION: "{}"
-  TORCHAUDIO_VERSION_SUFFIX: "{}"
-  PYTORCH_DOWNLOAD_URL: "{}"
-
-on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'docker/ubuntu-cuda/**'
-      - '.github/workflows/docker_build_{name}.yml'
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Login DockerHub
-        run: docker login --username=${{{{ secrets.DOCKER_USERNAME }}}} --password=${{{{ secrets.DOCKER_PASSWORD }}}}
-
-      - name: Build docker image
-        run: docker/ubuntu-cuda/build.sh
-
-      - name: Push docker image
-        run: docker push cnstark/pytorch:${{PYTORCH_VERSION}}-py${{PYTHON_VERSION}}-cuda${{CUDA_VERSION}}-${{CUDA_FLAVOR}}-ubuntu${{UBUNTU_VERSION}}
-"""
-
-
 GITHUB_BUILD_YML_TEMPLATE_CENTOS = """name: Build({name})
 
 env:
-  CENTOS_VERSION: "{os_version}"
+  BASE_IMAGE: "{base_image}"
 
   PYTHON_VERSION: "{python_version}"
 
@@ -466,6 +380,8 @@ env:
   TORCHAUDIO_VERSION: "{}"
   TORCHAUDIO_VERSION_SUFFIX: "{}"
   PYTORCH_DOWNLOAD_URL: "{}"
+
+  IMAGE_TAG: "{image_tag}"
 
 on:
   push:
@@ -492,132 +408,72 @@ jobs:
 """
 
 
-GITHUB_BUILD_YML_TEMPLATE_CENTOS_CUDA = """name: Build({name})
-
-env:
-  CENTOS_VERSION: "{os_version}"
-  CUDA_VERSION: "{cuda_version}"
-  CUDNN_VERSION: "{cudnn_version}"
-  CUDA_FLAVOR: "{cuda_flavor}"
-
-  PYTHON_VERSION: "{python_version}"
-
-  PYTORCH_VERSION: "{}"
-  PYTORCH_VERSION_SUFFIX: "{}"
-  TORCHVISION_VERSION: "{}"
-  TORCHVISION_VERSION_SUFFIX: "{}"
-  TORCHAUDIO_VERSION: "{}"
-  TORCHAUDIO_VERSION_SUFFIX: "{}"
-  PYTORCH_DOWNLOAD_URL: "{}"
-
-on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'docker/centos-cuda/**'
-      - '.github/workflows/docker_build_{name}.yml'
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Login DockerHub
-        run: docker login --username=${{{{ secrets.DOCKER_USERNAME }}}} --password=${{{{ secrets.DOCKER_PASSWORD }}}}
-
-      - name: Build docker image
-        run: docker/centos-cuda/build.sh
-
-      - name: Push docker image
-        run: docker push cnstark/pytorch:${{PYTORCH_VERSION}}-py${{PYTHON_VERSION}}-cuda${{CUDA_VERSION}}-${{CUDA_FLAVOR}}-centos${{CENTOS_VERSION}}
-"""
-
-
 GITHUB_BUILD_YML_TEMPLATE = {
-    'ubuntu': {
-        'cpu': GITHUB_BUILD_YML_TEMPLATE_UBUNTU,
-        'cuda': GITHUB_BUILD_YML_TEMPLATE_UBUNTU_CUDA,
-    },
-    'centos': {
-        'cpu': GITHUB_BUILD_YML_TEMPLATE_CENTOS,
-        'cuda': GITHUB_BUILD_YML_TEMPLATE_CENTOS_CUDA,
-    },
+    'ubuntu': GITHUB_BUILD_YML_TEMPLATE_UBUNTU,
+    'centos': GITHUB_BUILD_YML_TEMPLATE_CENTOS,
 }
 
-def generate_build_sh(os_name, os_version, python_version, pytorch_version, cuda_version, cuda_flavor='runtime', save_dir='scripts'):
+
+def generate_build_args(os_name, os_version, python_version, pytorch_version, cuda_version, cuda_flavor=None):
     if os_version not in OS_VERSIONS[os_name]:
         raise ValueError(f'OS {os_name} {os_version} is not available')
-    template = BUILD_SH_TEMPLATE[os_name]['cpu' if cuda_version == 'cpu' else 'cuda']
 
-    kwargs = {
-        'os_version': os_version,
-        'python_version': python_version
-    }
     if cuda_version == 'cpu':
-        img_name = '{}_py{}_{}{}'.format(pytorch_version, python_version, os_name, os_version)
+        base_image = '{}:{}'.format(os_name, os_version)
+        image_tag = '{}-py{}-{}{}'.format(pytorch_version, python_version, os_name, os_version)
     else:
         if os_version not in CUDA_VERSIONS[cuda_version][os_name + '_available']:
             raise ValueError(f'CUDA {cuda_version} is not available in {os_name} {os_version}!')
-        if cuda_flavor not in ('runtime', 'devel'):
-            raise ValueError(f'CUDA flavor is not available!')
-        kwargs['cuda_version'] = CUDA_VERSIONS[cuda_version]['version_name']
-        kwargs['cudnn_version'] = CUDA_VERSIONS[cuda_version]['cudnn']
-        kwargs['cuda_flavor'] = cuda_flavor
+        if cuda_flavor is None:
+            base_image = '{}:{}'.format(os_name, os_version)
+            image_tag = '{}-py{}-cuda{}-{}{}'.format(
+                pytorch_version, python_version, CUDA_VERSIONS[cuda_version]['version_name'],
+                os_name, os_version
+            )
+        else:
+            if cuda_flavor not in ('runtime', 'devel'):
+                raise ValueError(f'CUDA flavor is not available!')
 
-        img_name = '{}_py{}_cuda{}_{}_{}{}'.format(
-            pytorch_version, python_version, CUDA_VERSIONS[cuda_version]['version_name'], cuda_flavor, os_name, os_version
-        )
+            base_image = 'nvidia/cuda:{}-cudnn{}-{}-{}{}'.format(
+                CUDA_VERSIONS[cuda_version]['version_name'], CUDA_VERSIONS[cuda_version]['cudnn'],
+                cuda_flavor, os_name, os_version
+            )
+            image_tag = '{}-py{}-cuda{}-{}-{}{}'.format(
+                pytorch_version, python_version, CUDA_VERSIONS[cuda_version]['version_name'],
+                cuda_flavor,os_name, os_version
+            )
+    kwargs = {
+        'base_image': base_image,
+        'python_version': python_version,
+        'image_tag': image_tag
+    }
 
     pytorch_args = PYTORCH_VERSIONS[pytorch_version][cuda_version].copy()
     for i in [1, 3, 5]:
         if pytorch_args[i] != '':
             pytorch_args[i]  = '+' + pytorch_args[i]
+    return pytorch_args, kwargs
 
-    content = template.format(*pytorch_args, **kwargs)
 
-    file_path = os.path.join(save_dir, 'build_{}.sh'.format(img_name))
+def generate_build_sh(os_name, os_version, python_version, pytorch_version, cuda_version, cuda_flavor=None, save_dir='scripts'):
+    pytorch_args, kwargs = generate_build_args(os_name, os_version, python_version, pytorch_version, cuda_version, cuda_flavor)
+
+    content = BUILD_SH_TEMPLATE[os_name].format(*pytorch_args, **kwargs)
+
+    file_path = os.path.join(save_dir, 'build_{}.sh'.format(kwargs['image_tag'].replace('-', '_')))
     with open(file_path, 'w') as f:
         f.write(content)
 
     os.system('chmod +x {}'.format(file_path))
 
 
-def generate_github_build_yml(os_name, os_version, python_version, pytorch_version, cuda_version, cuda_flavor='runtime', save_dir='.github/workflows'):
-    if os_version not in OS_VERSIONS[os_name]:
-        raise ValueError(f'OS {os_name} {os_version} is not available')
-    template = GITHUB_BUILD_YML_TEMPLATE[os_name]['cpu' if cuda_version == 'cpu' else 'cuda']
+def generate_github_build_yml(os_name, os_version, python_version, pytorch_version, cuda_version, cuda_flavor=None, save_dir='.github/workflows'):
+    pytorch_args, kwargs = generate_build_args(os_name, os_version, python_version, pytorch_version, cuda_version, cuda_flavor)
 
-    kwargs = {
-        'os_version': os_version,
-        'python_version': python_version
-    }
-    if cuda_version == 'cpu':
-        img_name = '{}_py{}_{}{}'.format(pytorch_version, python_version, os_name, os_version)
-        kwargs['name'] = img_name
-    else:
-        if os_version not in CUDA_VERSIONS[cuda_version][os_name + '_available']:
-            raise ValueError(f'CUDA {cuda_version} is not available in {os_name} {os_version}!')
-        if cuda_flavor not in ('runtime', 'devel'):
-            raise ValueError(f'CUDA flavor is not available!')
-        kwargs['cuda_version'] = CUDA_VERSIONS[cuda_version]['version_name']
-        kwargs['cudnn_version'] = CUDA_VERSIONS[cuda_version]['cudnn']
-        kwargs['cuda_flavor'] = cuda_flavor
+    kwargs['name'] = kwargs['image_tag'].replace('-', '_')
+    content = GITHUB_BUILD_YML_TEMPLATE[os_name].format(*pytorch_args, **kwargs)
 
-        img_name = '{}_py{}_cuda{}_{}_{}{}'.format(
-            pytorch_version, python_version, CUDA_VERSIONS[cuda_version]['version_name'], cuda_flavor, os_name, os_version
-        )
-        kwargs['name'] = img_name
-
-    pytorch_args = PYTORCH_VERSIONS[pytorch_version][cuda_version].copy()
-    for i in [1, 3, 5]:
-        if pytorch_args[i] != '':
-            pytorch_args[i]  = '+' + pytorch_args[i]
-
-    content = template.format(*pytorch_args, **kwargs)
-
-    file_path = os.path.join(save_dir, 'docker_build_{}.yml'.format(img_name))
+    file_path = os.path.join(save_dir, 'docker_build_{}.yml'.format(kwargs['image_tag'].replace('-', '_')))
     with open(file_path, 'w') as f:
         f.write(content)
 
@@ -629,7 +485,7 @@ def parse_args():
     parser.add_argument('--python', help='Python version.', required=True)
     parser.add_argument('--pytorch', help='Pytorch version.', required=True)
     parser.add_argument('--cuda', help='CUDA version, `cpu` means CPU version.', default='cpu')
-    parser.add_argument('--cuda-flavor', help='CUDA flavor, `runtime` or `devel`', default='runtime')
+    parser.add_argument('--cuda-flavor', help='CUDA flavor, `runtime` or `devel`, default is None, means use base image')
     return parser.parse_args()
 
 
