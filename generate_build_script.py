@@ -362,7 +362,7 @@ jobs:
         run: docker/ubuntu/build.sh
 
       - name: Push docker image
-        run: docker push cnstark/pytorch:${{PYTORCH_VERSION}}-py${{PYTHON_VERSION}}-ubuntu${{UBUNTU_VERSION}}
+        run: docker push cnstark/pytorch:${IMAGE_TAG}
 """
 
 
@@ -404,7 +404,7 @@ jobs:
         run: docker/centos/build.sh
 
       - name: Push docker image
-        run: docker push cnstark/pytorch:${{PYTORCH_VERSION}}-py${{PYTHON_VERSION}}-centos${{CENTOS_VERSION}}
+        run: docker push cnstark/pytorch:${IMAGE_TAG}
 """
 
 
