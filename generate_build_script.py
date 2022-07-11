@@ -3,14 +3,32 @@ from argparse import ArgumentParser
 
 
 PYTORCH_VERSIONS = {
+    '1.12.0': {
+        'cpu': [
+            '1.12.0', 'cpu', '0.13.0', 'cpu', '0.12.0', 'cpu',
+            'https://download.pytorch.org/whl/cpu/torch_stable.html',
+        ],
+        '10.2': [
+            '', '', '', '', '', '',
+            '',
+        ],
+        '11.3': [
+            '1.12.0', 'cu113', '0.13.0', 'cu113', '0.12.0', 'cu113',
+            'https://download.pytorch.org/whl/cu113/torch_stable.html',
+        ],
+        '11.6': [
+            '1.12.0', 'cu116', '0.13.0', 'cu116', '0.12.0', 'cu116',
+            'https://download.pytorch.org/whl/cu116/torch_stable.html',
+        ],
+    },
     '1.11.0': {
         'cpu': [
             '1.11.0', 'cpu', '0.12.0', 'cpu', '0.11.0', 'cpu',
             'https://download.pytorch.org/whl/cpu/torch_stable.html',
         ],
         '10.2': [
-            '', '', '', '', '', '',
-            '',
+            '1.11.0', 'cu102', '0.12.0', 'cu102', '0.11.0', 'cu102',
+            'https://download.pytorch.org/whl/cu102/torch_stable.html',
         ],
         '11.3': [
             '1.11.0', 'cu113', '0.12.0', 'cu113', '0.11.0', 'cu113',
@@ -23,12 +41,26 @@ PYTORCH_VERSIONS = {
             'https://download.pytorch.org/whl/cpu/torch_stable.html',
         ],
         '10.2': [
-            '', '', '', '', '', '',
-            '',
+            '1.10.2', 'cu102', '0.11.3', 'cu102', '0.10.2', 'cu102',
+            'https://download.pytorch.org/whl/cu102/torch_stable.html',
         ],
         '11.3': [
             '1.10.2', 'cu113', '0.11.3', 'cu113', '0.10.2', 'cu113',
             'https://download.pytorch.org/whl/cu113/torch_stable.html',
+        ],
+    },
+    '1.10.1': {
+        'cpu': [
+            '1.10.1', 'cpu', '0.11.2', 'cpu', '0.10.1', 'cpu',
+            'https://download.pytorch.org/whl/cpu/torch_stable.html',
+        ],
+        '10.2': [
+            '1.10.1', 'cu102', '0.11.2', 'cu102', '0.10.1', 'cu102',
+            'https://download.pytorch.org/whl/cu102/torch_stable.html',
+        ],
+        '11.1': [
+            '1.10.1', 'cu111', '0.11.2', 'cu111', '0.10.1', 'cu111',
+            'https://download.pytorch.org/whl/cu111/torch_stable.html',
         ],
     },
     '1.9.1': {
@@ -275,6 +307,12 @@ CUDA_VERSIONS = {
         'ubuntu_available': ['16.04', '18.04', '20.04'],
         'centos_available': ['7', '8'],
     },
+    '11.6': {
+        'version_name': '11.6.2',
+        'cudnn': '8',
+        'ubuntu_available': ['18.04', '20.04'],
+        'centos_available': ['7'],
+    },
 }
 
 
@@ -362,7 +400,7 @@ jobs:
         run: docker/ubuntu/build.sh
 
       - name: Push docker image
-        run: docker push cnstark/pytorch:${IMAGE_TAG}
+        run: docker push cnstark/pytorch:${{IMAGE_TAG}}
 """
 
 
@@ -404,7 +442,7 @@ jobs:
         run: docker/centos/build.sh
 
       - name: Push docker image
-        run: docker push cnstark/pytorch:${IMAGE_TAG}
+        run: docker push cnstark/pytorch:${{IMAGE_TAG}}
 """
 
 
