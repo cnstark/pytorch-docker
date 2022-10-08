@@ -102,6 +102,8 @@ Docker Hub: https://hub.docker.com/r/cnstark/pytorch
 | ![pytorch1.4.0]   ![python3.8.13]   ![cuda10.1]         ![ubuntu18.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.4.0-py3.8.13-cuda10.1-ubuntu18.04)][DockerHub]            | `docker pull cnstark/pytorch:1.4.0-py3.8.13-cuda10.1-ubuntu18.04` |
 | ![pytorch1.4.0]   ![python3.8.13]   ![cuda10.1-devel]   ![ubuntu18.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.4.0-py3.8.13-cuda10.1-devel-ubuntu18.04)][DockerHub]      | `docker pull cnstark/pytorch:1.4.0-py3.8.13-cuda10.1-devel-ubuntu18.04` |
 | ![pytorch1.4.0]   ![python3.8.13]   ![cpu]              ![ubuntu18.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.4.0-py3.8.13-ubuntu18.04)][DockerHub]                     | `docker pull cnstark/pytorch:1.4.0-py3.8.13-ubuntu18.04` |
+| ![pytorch1.2.0]   ![python3.7.13]   ![cuda10.0]         ![ubuntu18.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.2.0-py3.7.13-cuda10.0-ubuntu18.04)][DockerHub]            | `docker pull cnstark/pytorch:1.2.0-py3.7.13-cuda10.0-ubuntu18.04` |
+| ![pytorch1.2.0]   ![python3.7.13]   ![cuda10.0-devel]   ![ubuntu18.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.2.0-py3.7.13-cuda10.0-devel-ubuntu18.04)][DockerHub]      | `docker pull cnstark/pytorch:1.2.0-py3.7.13-cuda10.0-devel-ubuntu18.04` |
 | ![pytorch1.2.0]   ![python3.7.13]   ![cpu]              ![ubuntu18.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.2.0-py3.7.13-ubuntu18.04)][DockerHub]                     | `docker pull cnstark/pytorch:1.2.0-py3.7.13-ubuntu18.04` |
 
 ## Other Images

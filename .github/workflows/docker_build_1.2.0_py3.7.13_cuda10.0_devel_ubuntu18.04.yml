@@ -1,0 +1,39 @@
+name: Build(1.2.0_py3.7.13_cuda10.0_devel_ubuntu18.04)
+
+env:
+  BASE_IMAGE: "nvidia/cuda:10.0-cudnn7-devel-ubuntu18.04"
+
+  PYTHON_VERSION: "3.7.13"
+
+  PYTORCH_VERSION: "1.2.0"
+  PYTORCH_VERSION_SUFFIX: ""
+  TORCHVISION_VERSION: "0.4.0"
+  TORCHVISION_VERSION_SUFFIX: ""
+  TORCHAUDIO_VERSION: ""
+  TORCHAUDIO_VERSION_SUFFIX: ""
+  PYTORCH_DOWNLOAD_URL: ""
+
+  IMAGE_TAG: "1.2.0-py3.7.13-cuda10.0-devel-ubuntu18.04"
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'docker/ubuntu/**'
+      - '.github/workflows/docker_build_1.2.0_py3.7.13_cuda10.0_devel_ubuntu18.04.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Login DockerHub
+        run: docker login --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build docker image
+        run: docker/ubuntu/build.sh
+
+      - name: Push docker image
+        run: docker push cnstark/pytorch:${IMAGE_TAG}
