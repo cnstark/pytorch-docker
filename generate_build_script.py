@@ -469,6 +469,8 @@ GITHUB_BUILD_YML_TEMPLATE = {
     'centos': GITHUB_BUILD_YML_TEMPLATE_CENTOS,
 }
 
+README_TEMPLATE = '| ![pytorch{}] ![python{}] ![{}] ![{}{}] [![](https://img.shields.io/docker/image-size/cnstark/pytorch/{})][DockerHub] | `docker pull cnstark/pytorch:{}` |'
+
 
 def generate_build_args(os_name, os_version, python_version, pytorch_version, cuda_version, cuda_flavor=None):
     if os_version not in OS_VERSIONS[os_name]:
@@ -532,6 +534,15 @@ def generate_github_build_yml(os_name, os_version, python_version, pytorch_versi
     file_path = os.path.join(save_dir, 'docker_build_{}.yml'.format(kwargs['image_tag'].replace('-', '_')))
     with open(file_path, 'w') as f:
         f.write(content)
+    
+    print('Image \'{}\' generated, please put the following content in the README.md: '.format(kwargs['image_tag']))
+    print('=' * 50)
+    print(README_TEMPLATE.format(
+        pytorch_version, python_version,
+        'cpu' if cuda_version == 'cpu' else ('cuda' + cuda_version + ('' if cuda_flavor is None else '-' + cuda_flavor)),
+        os_name, os_version, kwargs['image_tag'], kwargs['image_tag']
+    ))
+    print('=' * 50)
 
 
 def parse_args():
