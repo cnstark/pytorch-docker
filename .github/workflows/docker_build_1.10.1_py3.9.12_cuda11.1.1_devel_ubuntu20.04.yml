@@ -1,7 +1,7 @@
-name: Build(1.10.1_py3.9.12_cuda11.1_devel_ubuntu20.04)
+name: Build(1.10.1_py3.9.12_cuda11.1.1_devel_ubuntu20.04)
 
 env:
-  BASE_IMAGE: "nvidia/cuda:11.1-cudnn8-devel-ubuntu20.04"
+  BASE_IMAGE: "nvidia/cuda:11.1.1-cudnn8-devel-ubuntu20.04"
 
   PYTHON_VERSION: "3.9.12"
 
@@ -13,7 +13,7 @@ env:
   TORCHAUDIO_VERSION_SUFFIX: "+cu111"
   PYTORCH_DOWNLOAD_URL: "https://download.pytorch.org/whl/cu111/torch_stable.html"
 
-  IMAGE_TAG: "1.10.1-py3.9.12-cuda11.1-devel-ubuntu20.04"
+  IMAGE_TAG: "1.10.1-py3.9.12-cuda11.1.1-devel-ubuntu20.04"
 
 on:
   push:
@@ -21,7 +21,7 @@ on:
       - main
     paths:
       - 'docker/ubuntu/**'
-      - '.github/workflows/docker_build_1.10.1_py3.9.12_cuda11.1_devel_ubuntu20.04.yml'
+      - '.github/workflows/docker_build_1.10.1_py3.9.12_cuda11.1.1_devel_ubuntu20.04.yml'
 
 jobs:
   build:

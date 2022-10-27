@@ -316,13 +316,13 @@ CUDA_VERSIONS = {
         'centos_available': ['6', '7', '8'],
     },
     '11.0': {
-        'version_name': '11.0',
+        'version_name': '11.0.3',
         'cudnn': '8',
         'ubuntu_available': ['16.04', '18.04'],
         'centos_available': ['7', '8'],
     },
     '11.1': {
-        'version_name': '11.1',
+        'version_name': '11.1.1',
         'cudnn': '8',
         'ubuntu_available': ['16.04', '18.04', '20.04'],
         'centos_available': ['7', '8'],
