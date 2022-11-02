@@ -8,7 +8,7 @@
 
 Pure pytorch docker images with different os, cuda, and python versions.
 
-Github: https://github.com/cnstark/pytorch_docker
+Github: https://github.com/cnstark/pytorch-docker
 
 Docker Hub: https://hub.docker.com/r/cnstark/pytorch
 
