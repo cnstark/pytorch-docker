@@ -12,6 +12,28 @@ Github: https://github.com/cnstark/pytorch-docker
 
 Docker Hub: https://hub.docker.com/r/cnstark/pytorch
 
+## Usage
+
+### Preparation
+
+* [Docker](https://docs.docker.com/engine/install/)
+* [Nvidia-docker](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/overview.html) (If a CUDA is required)
+
+### Use pytorch docker
+
+As same as [Pytorch Official](https://github.com/pytorch/pytorch#docker-image).
+
+```shell
+docker run -it --rm \
+    --gpus all \
+    --net host 
+    -v /path/to/project:/path/to/project \
+    -v /path/to/dataset:/path/to/dataset \
+    cnstark/pytorch:[TAG]
+```
+
+Note: `/path/to/project` and `/path/to/dataset` is your **own** project path and dataset path, should be replaced in use.
+
 ## Image List (More images are on the way ~)
 
 <!-- Pytorch versions -->
@@ -131,7 +153,7 @@ python generate_build_script.py --os <ubuntu or centos> --os-version <e.g. 20.04
 ```
 
 ```shell
-usage: generate_build_script.py [-h] --os OS --os-version OS_VERSION --python PYTHON --pytorch PYTORCH [--cuda CUDA]
+usage: generate_build_script.py [-h] --os OS --os-version OS_VERSION --python PYTHON --pytorch PYTORCH [--cuda CUDA] [--cuda-flavor CUDA_FLAVOR]
 
 Generate docker build script.
 
@@ -143,6 +165,8 @@ optional arguments:
   --python PYTHON       Python version.
   --pytorch PYTORCH     Pytorch version.
   --cuda CUDA           CUDA version, `cpu` means CPU version.
+  --cuda-flavor CUDA_FLAVOR
+                        CUDA flavor, `runtime` or `devel`, default is None, means use base image
 ```
 
 ### Build Pytorch Docker Image
