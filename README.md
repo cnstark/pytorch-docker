@@ -87,6 +87,9 @@ Note: `/path/to/project` and `/path/to/dataset` is your **own** project path and
 
 | Image | Pull Command |
 |-|-|
+| ![pytorch1.13.1]  ![python3.9.12]   ![cuda11.7]         ![ubuntu20.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.13.1-py3.9.12-cuda11.7.1-ubuntu20.04)][DockerHub]         | `docker pull cnstark/pytorch:1.13.1-py3.9.12-cuda11.7.1-ubuntu20.04` |
+| ![pytorch1.13.1]  ![python3.9.12]   ![cuda11.7-devel]   ![ubuntu20.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.13.1-py3.9.12-cuda11.7.1-devel-ubuntu20.04)][DockerHub]   | `docker pull cnstark/pytorch:1.13.1-py3.9.12-cuda11.7.1-devel-ubuntu20.04` |
+| ![pytorch1.13.1]  ![python3.9.12]   ![cpu]              ![ubuntu20.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.13.1-py3.9.12-ubuntu20.04)][DockerHub]                    | `docker pull cnstark/pytorch:1.13.1-py3.9.12-ubuntu20.04` |
 | ![pytorch1.13.0]  ![python3.9.12]   ![cuda11.7]         ![ubuntu20.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.13.0-py3.9.12-cuda11.7.1-ubuntu20.04)][DockerHub]         | `docker pull cnstark/pytorch:1.13.0-py3.9.12-cuda11.7.1-ubuntu20.04` |
 | ![pytorch1.13.0]  ![python3.9.12]   ![cuda11.7-devel]   ![ubuntu20.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.13.0-py3.9.12-cuda11.7.1-devel-ubuntu20.04)][DockerHub]   | `docker pull cnstark/pytorch:1.13.0-py3.9.12-cuda11.7.1-devel-ubuntu20.04` |
 | ![pytorch1.13.0]  ![python3.9.12]   ![cpu]              ![ubuntu20.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.13.0-py3.9.12-ubuntu20.04)][DockerHub]                    | `docker pull cnstark/pytorch:1.13.0-py3.9.12-ubuntu20.04` |

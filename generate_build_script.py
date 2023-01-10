@@ -3,6 +3,20 @@ from argparse import ArgumentParser
 
 
 PYTORCH_VERSIONS = {
+    '1.13.1': {
+        'cpu': [
+            '1.13.1', 'cpu', '0.14.1', 'cpu', '0.13.1', 'cpu',
+            'https://download.pytorch.org/whl/cpu/torch_stable.html',
+        ],
+        '11.6': [
+            '1.13.1', 'cu116', '0.14.1', 'cu116', '0.13.1', 'cu116',
+            'https://download.pytorch.org/whl/cu116/torch_stable.html',
+        ],
+        '11.7': [
+            '1.13.1', 'cu117', '0.14.1', 'cu117', '0.13.1', 'cu117',
+            'https://download.pytorch.org/whl/cu117/torch_stable.html',
+        ],
+    },
     '1.13.0': {
         'cpu': [
             '1.13.0', 'cpu', '0.14.0', 'cpu', '0.13.0', 'cpu',
