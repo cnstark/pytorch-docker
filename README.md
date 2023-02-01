@@ -37,6 +37,7 @@ Note: `/path/to/project` and `/path/to/dataset` is your **own** project path and
 ## Image List (More images are on the way ~)
 
 <!-- Pytorch versions -->
+[pytorch1.13.1]: https://img.shields.io/badge/Pytorch-1.13.1-orange?logo=pytorch
 [pytorch1.13.0]: https://img.shields.io/badge/Pytorch-1.13.0-orange?logo=pytorch
 [pytorch1.12.1]: https://img.shields.io/badge/Pytorch-1.12.1-orange?logo=pytorch
 [pytorch1.12.0]: https://img.shields.io/badge/Pytorch-1.12.0-orange?logo=pytorch
