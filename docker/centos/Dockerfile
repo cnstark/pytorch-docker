@@ -17,7 +17,7 @@ RUN cd /tmp && \
     cd Python-${PYTHON_VERSION} && \
     ./configure --enable-optimizations && \
     make && make install && \
-    cd .. && rm -r Python-${PYTHON_VERSION} && \
+    cd .. && rm Python-${PYTHON_VERSION}.tgz && rm -r Python-${PYTHON_VERSION} && \
     ln -s /usr/local/bin/python3 /usr/local/bin/python && \
     ln -s /usr/local/bin/pip3 /usr/local/bin/pip && \
     python -m pip install --upgrade pip && \
