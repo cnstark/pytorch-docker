@@ -1,8 +1,26 @@
 import os
 from argparse import ArgumentParser
 
-
+# Schema:
+# {
+#    "pytorch_version": {
+#       "cuda_version": [
+#           "pytorch_version", "cuda_version", "torchvision_version", "cuda_version",
+#           "torchaudio_version", "cuda_version", "url"
+#       ],
+#    }
+# }
 PYTORCH_VERSIONS = {
+    '2.0.0': {
+        '11.8' : [
+            '2.0.0', 'cu118', '1.15.1', 'cu118', '1.3.1', 'cu118',
+            'https://download.pytorch.org/whl/cu118/torch_stable.html'
+        ],
+        '11.7': [
+            '2.0.0', 'cu117', '1.15.1', 'cu117', '1.3.1', 'cu117',
+            'https://download.pytorch.org/whl/cu117/torch_stable.html'
+        ],
+    },
     '1.13.1': {
         'cpu': [
             '1.13.1', 'cpu', '0.14.1', 'cpu', '0.13.1', 'cpu',
@@ -313,7 +331,7 @@ PYTORCH_VERSIONS = {
 
 
 OS_VERSIONS = {
-    'ubuntu': ['14.04', '16.04', '18.04', '20.04'],
+    'ubuntu': ['14.04', '16.04', '18.04', '20.04', '22.04'],
     'centos': ['6', '7', '8']
 }
 
@@ -375,6 +393,12 @@ CUDA_VERSIONS = {
     },
     '11.7': {
         'version_name': '11.7.1',
+        'cudnn': '8',
+        'ubuntu_available': ['18.04', '20.04', '22.04'],
+        'centos_available': ['7'],
+    },
+    '11.8': {
+        'version_name': '11.8.0',
         'cudnn': '8',
         'ubuntu_available': ['18.04', '20.04', '22.04'],
         'centos_available': ['7'],
@@ -522,7 +546,7 @@ README_TEMPLATE = '| ![pytorch{}] ![python{}] ![{}] ![{}{}] [![](https://img.shi
 
 def generate_build_args(os_name, os_version, python_version, pytorch_version, cuda_version, cuda_flavor=None):
     if os_version not in OS_VERSIONS[os_name]:
-        raise ValueError(f'OS {os_name} {os_version} is not available')
+        raise ValueError(f'OS {os_name} {os_version} is not available: choose from {OS_VERSIONS[os_name]}!')
 
     if cuda_version == 'cpu':
         base_image = '{}:{}'.format(os_name, os_version)
