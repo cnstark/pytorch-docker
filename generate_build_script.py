@@ -13,11 +13,11 @@ from argparse import ArgumentParser
 PYTORCH_VERSIONS = {
     '2.0.0': {
         '11.8' : [
-            '2.0.0', 'cu118', '1.15.1', 'cu118', '1.3.1', 'cu118',
+            '2.0.0', 'cu118', '0.15.0', 'cu118', '2.0.0', 'cu118',
             'https://download.pytorch.org/whl/cu118/torch_stable.html'
         ],
         '11.7': [
-            '2.0.0', 'cu117', '1.15.1', 'cu117', '1.3.1', 'cu117',
+            '2.0.0', 'cu117', '0.15.0', 'cu117', '2.0.0', 'cu117',
             'https://download.pytorch.org/whl/cu117/torch_stable.html'
         ],
     },
