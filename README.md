@@ -64,6 +64,7 @@ Note: `/path/to/project` and `/path/to/dataset` is your **own** project path and
 [python3.7.13]: https://img.shields.io/badge/Python-3.7.13-blue?logo=python
 
 <!-- OS versions -->
+[ubuntu22.04]: https://img.shields.io/badge/Ubuntu-22.04-orange?logo=ubuntu
 [ubuntu20.04]: https://img.shields.io/badge/Ubuntu-20.04-orange?logo=ubuntu
 [ubuntu18.04]: https://img.shields.io/badge/Ubuntu-18.04-orange?logo=ubuntu
 [centOS8]: https://img.shields.io/badge/CentOS-8-blue?logo=centos
@@ -89,15 +90,14 @@ Note: `/path/to/project` and `/path/to/dataset` is your **own** project path and
 [cuda10.0-devel]: https://img.shields.io/badge/CUDA-10.0--devel-green?logo=nvidia
 [cpu]: https://img.shields.io/badge/CPU-amd64-lightgray
 
-| Image                                                                                                                                                                                             | Pull Command |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-|
-
+| Image | Pull Command | 
+| -------------| -------------|
 | ![pytorch2.0.0]   ![python3.9.12]   ![cuda11.8]         ![ubuntu22.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/2.0.0-py3.9.12-cuda11.8.0-ubuntu22.04)][DockerHub]        | `docker pull cnstark/pytorch:2.0.0-py3.9.12-cuda11.8.0-ubuntu22.04` |
-| ![pytorch2.0.0]   ![python3.9.12]   ![cuda11.8-devel]   ![ubuntu22.04] [![](https://img.shields.io/docker/image-size/cnstark/pytorch/2.0.0-py3.9.12-cuda11.8.0-devel-ubuntu22.04)][DockerHub] | `docker pull cnstark/pytorch:2.0.0-py3.9.12-cuda11.8.0-devel-ubuntu22.04` |
+| ![pytorch2.0.0]   ![python3.9.12]   ![cuda11.8-devel]   ![ubuntu22.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/2.0.0-py3.9.12-cuda11.8.0-devel-ubuntu22.04)][DockerHub] | `docker pull cnstark/pytorch:2.0.0-py3.9.12-cuda11.8.0-devel-ubuntu22.04` |
 | ![pytorch2.0.0]   ![python3.9.12]   ![cuda11.8]         ![ubuntu20.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/2.0.0-py3.9.12-cuda11.8.0-ubuntu20.04)][DockerHub]        | `docker pull cnstark/pytorch:2.0.0-py3.9.12-cuda11.8.0-ubuntu20.04` |
-| ![pytorch2.0.0]   ![python3.9.12]   ![cuda11.8-devel]   ![ubuntu20.04] [![](https://img.shields.io/docker/image-size/cnstark/pytorch/2.0.0-py3.9.12-cuda11.8.0-devel-ubuntu20.04)][DockerHub] | `docker pull cnstark/pytorch:2.0.0-py3.9.12-cuda11.8.0-devel-ubuntu20.04` |
-| ![pytorch2.0.0]   ![python3.9.12]   ![cuda11.7]         ![ubuntu22.04] [![](https://img.shields.io/docker/image-size/cnstark/pytorch/2.0.0-py3.9.12-cuda11.7.1-ubuntu22.04)][DockerHub] | `docker pull cnstark/pytorch:2.0.0-py3.9.12-cuda11.7.1-ubuntu22.04` |
-| ![pytorch2.0.0]   ![python3.9.12]   ![cuda11.7-devel]   ![ubuntu22.04] [![](https://img.shields.io/docker/image-size/cnstark/pytorch/2.0.0-py3.9.12-cuda11.7.1-devel-ubuntu22.04)][DockerHub] | `docker pull cnstark/pytorch:2.0.0-py3.9.12-cuda11.7.1-devel-ubuntu22.04` |
+| ![pytorch2.0.0]   ![python3.9.12]   ![cuda11.8-devel]   ![ubuntu20.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/2.0.0-py3.9.12-cuda11.8.0-devel-ubuntu20.04)][DockerHub] | `docker pull cnstark/pytorch:2.0.0-py3.9.12-cuda11.8.0-devel-ubuntu20.04` |
+| ![pytorch2.0.0]   ![python3.9.12]   ![cuda11.7]         ![ubuntu22.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/2.0.0-py3.9.12-cuda11.7.1-ubuntu22.04)][DockerHub] | `docker pull cnstark/pytorch:2.0.0-py3.9.12-cuda11.7.1-ubuntu22.04` |
+| ![pytorch2.0.0]   ![python3.9.12]   ![cuda11.7-devel]   ![ubuntu22.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/2.0.0-py3.9.12-cuda11.7.1-devel-ubuntu22.04)][DockerHub] | `docker pull cnstark/pytorch:2.0.0-py3.9.12-cuda11.7.1-devel-ubuntu22.04` |
 | ![pytorch1.13.1]  ![python3.9.12]   ![cuda11.7]         ![ubuntu20.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.13.1-py3.9.12-cuda11.7.1-ubuntu20.04)][DockerHub]       | `docker pull cnstark/pytorch:1.13.1-py3.9.12-cuda11.7.1-ubuntu20.04` |
 | ![pytorch1.13.1]  ![python3.9.12]   ![cuda11.7-devel]   ![ubuntu20.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.13.1-py3.9.12-cuda11.7.1-devel-ubuntu20.04)][DockerHub] | `docker pull cnstark/pytorch:1.13.1-py3.9.12-cuda11.7.1-devel-ubuntu20.04` |
 | ![pytorch1.13.1]  ![python3.9.12]   ![cpu]              ![ubuntu20.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.13.1-py3.9.12-ubuntu20.04)][DockerHub]                  | `docker pull cnstark/pytorch:1.13.1-py3.9.12-ubuntu20.04` |
