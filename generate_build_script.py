@@ -11,6 +11,20 @@ from argparse import ArgumentParser
 #    }
 # }
 PYTORCH_VERSIONS = {
+    '2.0.1': {
+        'cpu': [
+            '2.0.1', 'cpu', '0.15.2', 'cpu', '2.0.2', 'cpu',
+            'https://download.pytorch.org/whl/cpu/torch_stable.html',
+        ],
+        '11.8' : [
+            '2.0.1', 'cu118', '0.15.2', 'cu118', '2.0.2', 'cu118',
+            'https://download.pytorch.org/whl/cu118/torch_stable.html'
+        ],
+        '11.7': [
+            '2.0.1', 'cu117', '0.15.2', 'cu117', '2.0.2', 'cu117',
+            'https://download.pytorch.org/whl/cu117/torch_stable.html'
+        ],
+    },
     '2.0.0': {
         'cpu': [
             '2.0.0', 'cpu', '0.15.0', 'cpu', '2.0.0', 'cpu',

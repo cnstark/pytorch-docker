@@ -14,6 +14,7 @@ Docker Hub: https://hub.docker.com/r/cnstark/pytorch
 
 ## Changelog
 
+* 2023/07/10: Support for pytorch 2.0.1.
 * 2023/05/04: Support for pytorch 2.0.
 
 ## Usage
@@ -41,6 +42,7 @@ Note: `/path/to/project` and `/path/to/dataset` is your **own** project path and
 ## Image List (More images are on the way ~)
 
 <!-- Pytorch versions -->
+[pytorch2.0.1]: https://img.shields.io/badge/Pytorch-2.0.1-orange?logo=pytorch
 [pytorch2.0.0]: https://img.shields.io/badge/Pytorch-2.0.0-orange?logo=pytorch
 [pytorch1.13.1]: https://img.shields.io/badge/Pytorch-1.13.1-orange?logo=pytorch
 [pytorch1.13.0]: https://img.shields.io/badge/Pytorch-1.13.0-orange?logo=pytorch
@@ -63,6 +65,7 @@ Note: `/path/to/project` and `/path/to/dataset` is your **own** project path and
 [pytorch1.2.0]: https://img.shields.io/badge/Pytorch-1.2.0-orange?logo=pytorch
 
 <!-- Python versions -->
+[python3.9.17]: https://img.shields.io/badge/Python-3.9.17-blue?logo=python
 [python3.9.16]: https://img.shields.io/badge/Python-3.9.16-blue?logo=python
 [python3.9.12]: https://img.shields.io/badge/Python-3.9.12-blue?logo=python
 [python3.8.13]: https://img.shields.io/badge/Python-3.8.13-blue?logo=python
@@ -97,6 +100,14 @@ Note: `/path/to/project` and `/path/to/dataset` is your **own** project path and
 [cpu]: https://img.shields.io/badge/CPU-amd64-lightgray
 
 <!-- order: cuda, python, os -->
+
+### 2.0.1
+
+| Image | Pull Command | 
+| -------------| -------------|
+| ![pytorch2.0.1] ![python3.9.17] ![cuda11.8] ![ubuntu20.04] [![](https://img.shields.io/docker/image-size/cnstark/pytorch/2.0.1-py3.9.17-cuda11.8.0-ubuntu20.04)][DockerHub] | `docker pull cnstark/pytorch:2.0.1-py3.9.17-cuda11.8.0-ubuntu20.04` |
+| ![pytorch2.0.1] ![python3.9.17] ![cuda11.8-devel] ![ubuntu20.04] [![](https://img.shields.io/docker/image-size/cnstark/pytorch/2.0.1-py3.9.17-cuda11.8.0-devel-ubuntu20.04)][DockerHub] | `docker pull cnstark/pytorch:2.0.1-py3.9.17-cuda11.8.0-devel-ubuntu20.04` |
+| ![pytorch2.0.1] ![python3.9.17] ![cpu] ![ubuntu20.04] [![](https://img.shields.io/docker/image-size/cnstark/pytorch/2.0.1-py3.9.17-ubuntu20.04)][DockerHub] | `docker pull cnstark/pytorch:2.0.1-py3.9.17-ubuntu20.04` |
 
 ### 2.0.0
 
@@ -344,6 +355,7 @@ If you want to build and release specific versions using github actions, you can
 
 | Version | CUDA/CPU |
 | - | - |
+| 2.0.1 | cpu, 11.8, 11.7 |
 | 2.0.0 | cpu, 11.8, 11.7 |
 | 1.13.1 | cpu, 11.7, 11.6 |
 | 1.13.0 | cpu, 11.7, 11.6 |
