@@ -1,0 +1,39 @@
+name: Build(2.0.1_py3.10.11_cuda11.8.0_ubuntu22.04)
+
+env:
+  BASE_IMAGE: "ubuntu:22.04"
+
+  PYTHON_VERSION: "3.10.11"
+
+  PYTORCH_VERSION: "2.0.1"
+  PYTORCH_VERSION_SUFFIX: "+cu118"
+  TORCHVISION_VERSION: "0.15.2"
+  TORCHVISION_VERSION_SUFFIX: "+cu118"
+  TORCHAUDIO_VERSION: "2.0.2"
+  TORCHAUDIO_VERSION_SUFFIX: "+cu118"
+  PYTORCH_DOWNLOAD_URL: "https://download.pytorch.org/whl/cu118/torch_stable.html"
+
+  IMAGE_TAG: "2.0.1-py3.10.11-cuda11.8.0-ubuntu22.04"
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'docker/ubuntu/**'
+      - '.github/workflows/docker_build_2.0.1_py3.10.11_cuda11.8.0_ubuntu22.04.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Login DockerHub
+        run: docker login --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build docker image
+        run: docker/ubuntu/build.sh
+
+      - name: Push docker image
+        run: docker push cnstark/pytorch:${IMAGE_TAG}
