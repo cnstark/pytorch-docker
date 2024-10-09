@@ -40,8 +40,6 @@ docker run -it --rm \
 
 Note: `/path/to/project` and `/path/to/dataset` is your **own** project path and dataset path, should be replaced in use.
 
-## Image List (More images are on the way ~)
-
 <!-- Pytorch versions -->
 [pytorch2.4.1]: https://img.shields.io/badge/Pytorch-2.4.1-orange?logo=pytorch
 [pytorch2.4.0]: https://img.shields.io/badge/Pytorch-2.4.0-orange?logo=pytorch
@@ -114,7 +112,21 @@ Note: `/path/to/project` and `/path/to/dataset` is your **own** project path and
 [cuda10.0-devel]: https://img.shields.io/badge/CUDA-10.0--devel-green?logo=nvidia
 [cpu]: https://img.shields.io/badge/CPU-amd64-lightgray
 
+## Latest Images
+
+### 2.4.1
+
+| Image | Pull Command |
+| -------------| -------------|
+| ![pytorch2.4.1] ![python3.10.15] ![cuda12.1] ![ubuntu22.04] [![](https://img.shields.io/docker/image-size/cnstark/pytorch/2.4.1-py3.10.15-cuda12.1.0-ubuntu22.04)][DockerHub] | `docker pull cnstark/pytorch:2.4.1-py3.10.15-cuda12.1.0-ubuntu22.04` |
+| ![pytorch2.4.1] ![python3.10.15] ![cuda12.1-devel] ![ubuntu22.04] [![](https://img.shields.io/docker/image-size/cnstark/pytorch/2.4.1-py3.10.15-cuda12.1.0-devel-ubuntu22.04)][DockerHub] | `docker pull cnstark/pytorch:2.4.1-py3.10.15-cuda12.1.0-devel-ubuntu22.04` |
+| ![pytorch2.4.1] ![python3.10.15] ![cpu] ![ubuntu22.04] [![](https://img.shields.io/docker/image-size/cnstark/pytorch/2.4.1-py3.10.15-ubuntu22.04)][DockerHub] | `docker pull cnstark/pytorch:2.4.1-py3.10.15-ubuntu22.04` |
+
+## Images List (More images are on the way ~)
 <!-- order: cuda, python, os -->
+
+<details>
+<summary>2.4.x</summary>
 
 ### 2.4.1
 
@@ -132,6 +144,11 @@ Note: `/path/to/project` and `/path/to/dataset` is your **own** project path and
 | ![pytorch2.4.0] ![python3.10.15] ![cuda12.1-devel] ![ubuntu22.04] [![](https://img.shields.io/docker/image-size/cnstark/pytorch/2.4.0-py3.10.15-cuda12.1.0-devel-ubuntu22.04)][DockerHub] | `docker pull cnstark/pytorch:2.4.0-py3.10.15-cuda12.1.0-devel-ubuntu22.04` |
 | ![pytorch2.4.0] ![python3.10.15] ![cpu] ![ubuntu22.04] [![](https://img.shields.io/docker/image-size/cnstark/pytorch/2.4.0-py3.10.15-ubuntu22.04)][DockerHub] | `docker pull cnstark/pytorch:2.4.0-py3.10.15-ubuntu22.04` |
 
+</details>
+
+<details>
+<summary>2.3.x</summary>
+
 ### 2.3.1
 
 | Image | Pull Command |
@@ -147,6 +164,11 @@ Note: `/path/to/project` and `/path/to/dataset` is your **own** project path and
 | ![pytorch2.3.0] ![python3.10.15] ![cuda12.1] ![ubuntu22.04] [![](https://img.shields.io/docker/image-size/cnstark/pytorch/2.3.0-py3.10.15-cuda12.1.0-ubuntu22.04)][DockerHub] | `docker pull cnstark/pytorch:2.3.0-py3.10.15-cuda12.1.0-ubuntu22.04` |
 | ![pytorch2.3.0] ![python3.10.15] ![cuda12.1-devel] ![ubuntu22.04] [![](https://img.shields.io/docker/image-size/cnstark/pytorch/2.3.0-py3.10.15-cuda12.1.0-devel-ubuntu22.04)][DockerHub] | `docker pull cnstark/pytorch:2.3.0-py3.10.15-cuda12.1.0-devel-ubuntu22.04` |
 | ![pytorch2.3.0] ![python3.10.15] ![cpu] ![ubuntu22.04] [![](https://img.shields.io/docker/image-size/cnstark/pytorch/2.3.0-py3.10.15-ubuntu22.04)][DockerHub] | `docker pull cnstark/pytorch:2.3.0-py3.10.15-ubuntu22.04` |
+
+</details>
+
+<details>
+<summary>2.2.x</summary>
 
 ### 2.2.2
 
@@ -172,6 +194,11 @@ Note: `/path/to/project` and `/path/to/dataset` is your **own** project path and
 | ![pytorch2.2.0] ![python3.10.15] ![cuda12.1-devel] ![ubuntu22.04] [![](https://img.shields.io/docker/image-size/cnstark/pytorch/2.2.0-py3.10.15-cuda12.1.0-devel-ubuntu22.04)][DockerHub] | `docker pull cnstark/pytorch:2.2.0-py3.10.15-cuda12.1.0-devel-ubuntu22.04` |
 | ![pytorch2.2.0] ![python3.10.15] ![cpu] ![ubuntu22.04] [![](https://img.shields.io/docker/image-size/cnstark/pytorch/2.2.0-py3.10.15-ubuntu22.04)][DockerHub] | `docker pull cnstark/pytorch:2.2.0-py3.10.15-ubuntu22.04` |
 
+</details>
+
+<details>
+<summary>2.1.x</summary>
+
 ### 2.1.2
 
 | Image | Pull Command |
@@ -195,6 +222,11 @@ Note: `/path/to/project` and `/path/to/dataset` is your **own** project path and
 | ![pytorch2.1.0] ![python3.10.15] ![cuda12.1] ![ubuntu22.04] [![](https://img.shields.io/docker/image-size/cnstark/pytorch/2.1.0-py3.10.15-cuda12.1.0-ubuntu22.04)][DockerHub] | `docker pull cnstark/pytorch:2.1.0-py3.10.15-cuda12.1.0-ubuntu22.04` |
 | ![pytorch2.1.0] ![python3.10.15] ![cuda12.1-devel] ![ubuntu22.04] [![](https://img.shields.io/docker/image-size/cnstark/pytorch/2.1.0-py3.10.15-cuda12.1.0-devel-ubuntu22.04)][DockerHub] | `docker pull cnstark/pytorch:2.1.0-py3.10.15-cuda12.1.0-devel-ubuntu22.04` |
 | ![pytorch2.1.0] ![python3.10.15] ![cpu] ![ubuntu22.04] [![](https://img.shields.io/docker/image-size/cnstark/pytorch/2.1.0-py3.10.15-ubuntu22.04)][DockerHub] | `docker pull cnstark/pytorch:2.1.0-py3.10.15-ubuntu22.04` |
+
+</details>
+
+<details>
+<summary>2.0.x</summary>
 
 ### 2.0.1
 
@@ -226,6 +258,11 @@ Note: `/path/to/project` and `/path/to/dataset` is your **own** project path and
 | ![pytorch2.0.0]   ![python3.9.12]   ![cuda11.7-devel]   ![ubuntu22.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/2.0.0-py3.9.12-cuda11.7.1-devel-ubuntu22.04)][DockerHub]  | `docker pull cnstark/pytorch:2.0.0-py3.9.12-cuda11.7.1-devel-ubuntu22.04` |
 | ![pytorch2.0.0]   ![python3.9.12]   ![cpu]              ![ubuntu20.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/2.0.0-py3.9.12-ubuntu20.04)][DockerHub]                   | `docker pull cnstark/pytorch:2.0.0-py3.9.12-ubuntu20.04` |
 
+</details>
+
+<details>
+<summary>1.13.x</summary>
+
 ### 1.13.1
 
 | Image | Pull Command |
@@ -247,6 +284,11 @@ Note: `/path/to/project` and `/path/to/dataset` is your **own** project path and
 | ![pytorch1.13.0]  ![python3.9.12]   ![cuda11.7-devel]   ![ubuntu20.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.13.0-py3.9.12-cuda11.7.1-devel-ubuntu20.04)][DockerHub] | `docker pull cnstark/pytorch:1.13.0-py3.9.12-cuda11.7.1-devel-ubuntu20.04` |
 | ![pytorch1.13.0]  ![python3.9.12]   ![cpu]              ![ubuntu20.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.13.0-py3.9.12-ubuntu20.04)][DockerHub]                  | `docker pull cnstark/pytorch:1.13.0-py3.9.12-ubuntu20.04` |
 
+</details>
+
+<details>
+<summary>1.12.x</summary>
+
 ### 1.12.1
 
 | Image | Pull Command |
@@ -265,6 +307,11 @@ Note: `/path/to/project` and `/path/to/dataset` is your **own** project path and
 | ![pytorch1.12.0]  ![python3.9.12]   ![cuda11.3-devel]   ![ubuntu20.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.12.0-py3.9.12-cuda11.3.1-devel-ubuntu20.04)][DockerHub] | `docker pull cnstark/pytorch:1.12.0-py3.9.12-cuda11.3.1-devel-ubuntu20.04` |
 | ![pytorch1.12.0]  ![python3.9.12]   ![cpu]              ![ubuntu20.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.12.0-py3.9.12-ubuntu20.04)][DockerHub]                  | `docker pull cnstark/pytorch:1.12.0-py3.9.12-ubuntu20.04` |
 
+</details>
+
+<details>
+<summary>1.11.x</summary>
+
 ### 1.11.0
 
 | Image | Pull Command |
@@ -272,6 +319,11 @@ Note: `/path/to/project` and `/path/to/dataset` is your **own** project path and
 | ![pytorch1.11.0]  ![python3.9.12]   ![cuda11.3]         ![ubuntu20.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.11.0-py3.9.12-cuda11.3.1-ubuntu20.04)][DockerHub]       | `docker pull cnstark/pytorch:1.11.0-py3.9.12-cuda11.3.1-ubuntu20.04` |
 | ![pytorch1.11.0]  ![python3.9.12]   ![cuda11.3-devel]   ![ubuntu20.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.11.0-py3.9.12-cuda11.3.1-devel-ubuntu20.04)][DockerHub] | `docker pull cnstark/pytorch:1.11.0-py3.9.12-cuda11.3.1-devel-ubuntu20.04` |
 | ![pytorch1.11.0]  ![python3.9.12]   ![cpu]              ![ubuntu20.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.11.0-py3.9.12-ubuntu20.04)][DockerHub]                  | `docker pull cnstark/pytorch:1.11.0-py3.9.12-ubuntu20.04` |
+
+</details>
+
+<details>
+<summary>1.10.x</summary>
 
 ### 1.10.2
 
@@ -299,6 +351,11 @@ Note: `/path/to/project` and `/path/to/dataset` is your **own** project path and
 | ![pytorch1.10.0]  ![python3.8.16]   ![cuda11.1-devel]   ![ubuntu20.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.10.0-py3.8.16-cuda11.1.1-devel-ubuntu20.04)][DockerHub] | `docker pull cnstark/pytorch:1.10.0-py3.8.16-cuda11.1.1-devel-ubuntu20.04` |
 | ![pytorch1.10.0]  ![python3.9.12]   ![cpu]              ![ubuntu20.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.10.0-py3.9.12-ubuntu20.04)][DockerHub]                  | `docker pull cnstark/pytorch:1.10.0-py3.9.12-ubuntu20.04` |
 
+</details>
+
+<details>
+<summary>1.9.x</summary>
+
 ### 1.9.1
 
 | Image | Pull Command |
@@ -315,6 +372,11 @@ Note: `/path/to/project` and `/path/to/dataset` is your **own** project path and
 | ![pytorch1.9.0]   ![python3.9.12]   ![cuda11.1-devel]   ![ubuntu20.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.9.0-py3.9.12-cuda11.1.1-devel-ubuntu20.04)][DockerHub]  | `docker pull cnstark/pytorch:1.9.0-py3.9.12-cuda11.1.1-devel-ubuntu20.04` |
 | ![pytorch1.9.0]   ![python3.9.12]   ![cpu]              ![ubuntu20.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.9.0-py3.9.12-ubuntu20.04)][DockerHub]                   | `docker pull cnstark/pytorch:1.9.0-py3.9.12-ubuntu20.04` |
 
+</details>
+
+<details>
+<summary>1.8.x</summary>
+
 ### 1.8.1
 
 | Image | Pull Command |
@@ -330,6 +392,11 @@ Note: `/path/to/project` and `/path/to/dataset` is your **own** project path and
 | ![pytorch1.8.0]   ![python3.9.12]   ![cuda11.1]         ![ubuntu20.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.8.0-py3.9.12-cuda11.1.1-ubuntu20.04)][DockerHub]        | `docker pull cnstark/pytorch:1.8.0-py3.9.12-cuda11.1.1-ubuntu20.04` |
 | ![pytorch1.8.0]   ![python3.9.12]   ![cuda11.1-devel]   ![ubuntu20.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.8.0-py3.9.12-cuda11.1.1-devel-ubuntu20.04)][DockerHub]  | `docker pull cnstark/pytorch:1.8.0-py3.9.12-cuda11.1.1-devel-ubuntu20.04` |
 | ![pytorch1.8.0]   ![python3.9.12]   ![cpu]              ![ubuntu20.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.8.0-py3.9.12-ubuntu20.04)][DockerHub]                   | `docker pull cnstark/pytorch:1.8.0-py3.9.12-ubuntu20.04` |
+
+</details>
+
+<details>
+<summary>1.7.x</summary>
 
 
 ### 1.7.1
@@ -349,6 +416,10 @@ Note: `/path/to/project` and `/path/to/dataset` is your **own** project path and
 | ![pytorch1.7.0]   ![python3.8.13]   ![cuda11.0-devel]   ![ubuntu18.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.7.0-py3.8.13-cuda11.0.3-devel-ubuntu18.04)][DockerHub]  | `docker pull cnstark/pytorch:1.7.0-py3.8.13-cuda11.0.3-devel-ubuntu18.04` |
 | ![pytorch1.7.0]   ![python3.8.13]   ![cpu]              ![ubuntu18.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.7.0-py3.8.13-ubuntu18.04)][DockerHub]                   | `docker pull cnstark/pytorch:1.7.0-py3.8.13-ubuntu18.04` |
 
+</details>
+
+<details>
+<summary>1.6.x</summary>
 
 ### 1.6.0
 
@@ -358,6 +429,10 @@ Note: `/path/to/project` and `/path/to/dataset` is your **own** project path and
 | ![pytorch1.6.0]   ![python3.8.13]   ![cuda10.2-devel]   ![ubuntu18.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.6.0-py3.8.13-cuda10.2-devel-ubuntu18.04)][DockerHub]    | `docker pull cnstark/pytorch:1.6.0-py3.8.13-cuda10.2-devel-ubuntu18.04` |
 | ![pytorch1.6.0]   ![python3.8.13]   ![cpu]              ![ubuntu18.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.6.0-py3.8.13-ubuntu18.04)][DockerHub]                   | `docker pull cnstark/pytorch:1.6.0-py3.8.13-ubuntu18.04` |
 
+</details>
+
+<details>
+<summary>1.5.x</summary>
 
 ### 1.5.1
 
@@ -367,7 +442,6 @@ Note: `/path/to/project` and `/path/to/dataset` is your **own** project path and
 | ![pytorch1.5.1]   ![python3.8.13]   ![cuda10.2-devel]   ![ubuntu18.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.5.1-py3.8.13-cuda10.2-devel-ubuntu18.04)][DockerHub]    | `docker pull cnstark/pytorch:1.5.1-py3.8.13-cuda10.2-devel-ubuntu18.04` |
 | ![pytorch1.5.1]   ![python3.8.13]   ![cpu]              ![ubuntu18.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.5.1-py3.8.13-ubuntu18.04)][DockerHub]                   | `docker pull cnstark/pytorch:1.5.1-py3.8.13-ubuntu18.04` |
 
-
 ### 1.5.0
 
 | Image | Pull Command |
@@ -376,6 +450,10 @@ Note: `/path/to/project` and `/path/to/dataset` is your **own** project path and
 | ![pytorch1.5.0]   ![python3.8.13]   ![cuda10.2-devel]   ![ubuntu18.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.5.0-py3.8.13-cuda10.2-devel-ubuntu18.04)][DockerHub]    | `docker pull cnstark/pytorch:1.5.0-py3.8.13-cuda10.2-devel-ubuntu18.04` |
 | ![pytorch1.5.0]   ![python3.8.13]   ![cpu]              ![ubuntu18.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.5.0-py3.8.13-ubuntu18.04)][DockerHub]                   | `docker pull cnstark/pytorch:1.5.0-py3.8.13-ubuntu18.04` |
 
+</details>
+
+<details>
+<summary>1.4.x</summary>
 
 ### 1.4.0
 
@@ -385,6 +463,10 @@ Note: `/path/to/project` and `/path/to/dataset` is your **own** project path and
 | ![pytorch1.4.0]   ![python3.8.13]   ![cuda10.1-devel]   ![ubuntu18.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.4.0-py3.8.13-cuda10.1-devel-ubuntu18.04)][DockerHub]    | `docker pull cnstark/pytorch:1.4.0-py3.8.13-cuda10.1-devel-ubuntu18.04` |
 | ![pytorch1.4.0]   ![python3.8.13]   ![cpu]              ![ubuntu18.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.4.0-py3.8.13-ubuntu18.04)][DockerHub]                   | `docker pull cnstark/pytorch:1.4.0-py3.8.13-ubuntu18.04` |
 
+</details>
+
+<details>
+<summary>1.2.x</summary>
 
 ### 1.2.0
 
@@ -393,6 +475,8 @@ Note: `/path/to/project` and `/path/to/dataset` is your **own** project path and
 | ![pytorch1.2.0]   ![python3.7.13]   ![cuda10.0]         ![ubuntu18.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.2.0-py3.7.13-cuda10.0-ubuntu18.04)][DockerHub]          | `docker pull cnstark/pytorch:1.2.0-py3.7.13-cuda10.0-ubuntu18.04` |
 | ![pytorch1.2.0]   ![python3.7.13]   ![cuda10.0-devel]   ![ubuntu18.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.2.0-py3.7.13-cuda10.0-devel-ubuntu18.04)][DockerHub]    | `docker pull cnstark/pytorch:1.2.0-py3.7.13-cuda10.0-devel-ubuntu18.04` |
 | ![pytorch1.2.0]   ![python3.7.13]   ![cpu]              ![ubuntu18.04]    [![](https://img.shields.io/docker/image-size/cnstark/pytorch/1.2.0-py3.7.13-ubuntu18.04)][DockerHub]                   | `docker pull cnstark/pytorch:1.2.0-py3.7.13-ubuntu18.04` |
+
+</details>
 
 ## Other Images
 
