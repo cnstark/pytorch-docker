@@ -14,6 +14,7 @@ Docker Hub: https://hub.docker.com/r/cnstark/pytorch
 
 ## Changelog
 
+* 2024/10/10: Support for pytorch 2.1.x 2.2.x 2.3.x 2.4.x (I'm back).
 * 2023/07/10: Support for pytorch 2.0.1.
 * 2023/05/04: Support for pytorch 2.0.
 
@@ -118,6 +119,14 @@ Note: `/path/to/project` and `/path/to/dataset` is your **own** project path and
 <!-- <details>
 <summary>More Images</summary>
 </details> -->
+
+### 2.4.1
+
+| Image | Pull Command |
+| -------------| -------------|
+| ![pytorch2.4.1] ![python3.10.15] ![cuda12.1] ![ubuntu22.04] [![](https://img.shields.io/docker/image-size/cnstark/pytorch/2.4.1-py3.10.15-cuda12.1.0-ubuntu22.04)][DockerHub] | `docker pull cnstark/pytorch:2.4.1-py3.10.15-cuda12.1.0-ubuntu22.04` |
+| ![pytorch2.4.1] ![python3.10.15] ![cuda12.1-devel] ![ubuntu22.04] [![](https://img.shields.io/docker/image-size/cnstark/pytorch/2.4.1-py3.10.15-cuda12.1.0-devel-ubuntu22.04)][DockerHub] | `docker pull cnstark/pytorch:2.4.1-py3.10.15-cuda12.1.0-devel-ubuntu22.04` |
+| ![pytorch2.4.1] ![python3.10.15] ![cpu] ![ubuntu22.04] [![](https://img.shields.io/docker/image-size/cnstark/pytorch/2.4.1-py3.10.15-ubuntu22.04)][DockerHub] | `docker pull cnstark/pytorch:2.4.1-py3.10.15-ubuntu22.04` |
 
 ### 2.4.0
 
