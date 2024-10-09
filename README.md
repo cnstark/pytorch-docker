@@ -119,6 +119,14 @@ Note: `/path/to/project` and `/path/to/dataset` is your **own** project path and
 <summary>More Images</summary>
 </details> -->
 
+### 2.4.0
+
+| Image | Pull Command |
+| -------------| -------------|
+| ![pytorch2.4.0] ![python3.10.15] ![cuda12.1] ![ubuntu22.04] [![](https://img.shields.io/docker/image-size/cnstark/pytorch/2.4.0-py3.10.15-cuda12.1.0-ubuntu22.04)][DockerHub] | `docker pull cnstark/pytorch:2.4.0-py3.10.15-cuda12.1.0-ubuntu22.04` |
+| ![pytorch2.4.0] ![python3.10.15] ![cuda12.1-devel] ![ubuntu22.04] [![](https://img.shields.io/docker/image-size/cnstark/pytorch/2.4.0-py3.10.15-cuda12.1.0-devel-ubuntu22.04)][DockerHub] | `docker pull cnstark/pytorch:2.4.0-py3.10.15-cuda12.1.0-devel-ubuntu22.04` |
+| ![pytorch2.4.0] ![python3.10.15] ![cpu] ![ubuntu22.04] [![](https://img.shields.io/docker/image-size/cnstark/pytorch/2.4.0-py3.10.15-ubuntu22.04)][DockerHub] | `docker pull cnstark/pytorch:2.4.0-py3.10.15-ubuntu22.04` |
+
 ### 2.3.1
 
 | Image | Pull Command |
