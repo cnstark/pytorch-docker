@@ -11,6 +11,146 @@ from argparse import ArgumentParser
 #    }
 # }
 PYTORCH_VERSIONS = {
+    '2.4.1': {
+        'cpu': [
+            '2.4.1', 'cpu', '0.19.1', 'cpu', '2.4.1', 'cpu',
+            'https://download.pytorch.org/whl/cpu/torch_stable.html',
+        ],
+        '12.1' : [
+            '2.4.1', 'cu121', '0.19.1', 'cu121', '2.4.1', 'cu121',
+            'https://download.pytorch.org/whl/cu121/torch_stable.html'
+        ],
+        '11.8': [
+            '2.4.1', 'cu118', '0.19.1', 'cu118', '2.4.1', 'cu118',
+            'https://download.pytorch.org/whl/cu118/torch_stable.html'
+        ],
+    },
+    '2.4.0': {
+        'cpu': [
+            '2.4.0', 'cpu', '0.19.0', 'cpu', '2.4.0', 'cpu',
+            'https://download.pytorch.org/whl/cpu/torch_stable.html',
+        ],
+        '12.1' : [
+            '2.4.0', 'cu121', '0.19.0', 'cu121', '2.4.0', 'cu121',
+            'https://download.pytorch.org/whl/cu121/torch_stable.html'
+        ],
+        '11.8': [
+            '2.4.0', 'cu118', '0.19.0', 'cu118', '2.4.0', 'cu118',
+            'https://download.pytorch.org/whl/cu118/torch_stable.html'
+        ],
+    },
+    '2.3.1': {
+        'cpu': [
+            '2.3.1', 'cpu', '0.18.1', 'cpu', '2.3.1', 'cpu',
+            'https://download.pytorch.org/whl/cpu/torch_stable.html',
+        ],
+        '12.1' : [
+            '2.3.1', 'cu121', '0.18.1', 'cu121', '2.3.1', 'cu121',
+            'https://download.pytorch.org/whl/cu121/torch_stable.html'
+        ],
+        '11.8': [
+            '2.3.1', 'cu118', '0.18.1', 'cu118', '2.3.1', 'cu118',
+            'https://download.pytorch.org/whl/cu118/torch_stable.html'
+        ],
+    },
+    '2.3.0': {
+        'cpu': [
+            '2.3.0', 'cpu', '0.18.0', 'cpu', '2.3.0', 'cpu',
+            'https://download.pytorch.org/whl/cpu/torch_stable.html',
+        ],
+        '12.1' : [
+            '2.3.0', 'cu121', '0.18.0', 'cu121', '2.3.0', 'cu121',
+            'https://download.pytorch.org/whl/cu121/torch_stable.html'
+        ],
+        '11.8': [
+            '2.3.0', 'cu118', '0.18.0', 'cu118', '2.3.0', 'cu118',
+            'https://download.pytorch.org/whl/cu118/torch_stable.html'
+        ],
+    },
+    '2.2.2': {
+        'cpu': [
+            '2.2.2', 'cpu', '0.17.2', 'cpu', '2.2.2', 'cpu',
+            'https://download.pytorch.org/whl/cpu/torch_stable.html',
+        ],
+        '12.1' : [
+            '2.2.2', 'cu121', '0.17.2', 'cu121', '2.2.2', 'cu121',
+            'https://download.pytorch.org/whl/cu121/torch_stable.html'
+        ],
+        '11.8': [
+            '2.2.2', 'cu118', '0.17.2', 'cu118', '2.2.2', 'cu118',
+            'https://download.pytorch.org/whl/cu118/torch_stable.html'
+        ],
+    },
+    '2.2.1': {
+        'cpu': [
+            '2.2.1', 'cpu', '0.17.1', 'cpu', '2.2.1', 'cpu',
+            'https://download.pytorch.org/whl/cpu/torch_stable.html',
+        ],
+        '12.1' : [
+            '2.2.1', 'cu121', '0.17.1', 'cu121', '2.2.1', 'cu121',
+            'https://download.pytorch.org/whl/cu121/torch_stable.html'
+        ],
+        '11.8': [
+            '2.2.1', 'cu118', '0.17.1', 'cu118', '2.2.1', 'cu118',
+            'https://download.pytorch.org/whl/cu118/torch_stable.html'
+        ],
+    },
+    '2.2.0': {
+        'cpu': [
+            '2.2.0', 'cpu', '0.17.0', 'cpu', '2.2.0', 'cpu',
+            'https://download.pytorch.org/whl/cpu/torch_stable.html',
+        ],
+        '12.1' : [
+            '2.2.0', 'cu121', '0.17.0', 'cu121', '2.2.0', 'cu121',
+            'https://download.pytorch.org/whl/cu121/torch_stable.html'
+        ],
+        '11.8': [
+            '2.2.0', 'cu118', '0.17.0', 'cu118', '2.2.0', 'cu118',
+            'https://download.pytorch.org/whl/cu118/torch_stable.html'
+        ],
+    },
+    '2.1.2': {
+        'cpu': [
+            '2.1.2', 'cpu', '0.16.2', 'cpu', '2.1.2', 'cpu',
+            'https://download.pytorch.org/whl/cpu/torch_stable.html',
+        ],
+        '12.1' : [
+            '2.1.2', 'cu121', '0.16.2', 'cu121', '2.1.2', 'cu121',
+            'https://download.pytorch.org/whl/cu121/torch_stable.html'
+        ],
+        '11.8': [
+            '2.1.2', 'cu118', '0.16.2', 'cu118', '2.1.2', 'cu118',
+            'https://download.pytorch.org/whl/cu118/torch_stable.html'
+        ],
+    },
+    '2.1.1': {
+        'cpu': [
+            '2.1.1', 'cpu', '0.16.1', 'cpu', '2.1.1', 'cpu',
+            'https://download.pytorch.org/whl/cpu/torch_stable.html',
+        ],
+        '12.1' : [
+            '2.1.1', 'cu121', '0.16.1', 'cu121', '2.1.1', 'cu121',
+            'https://download.pytorch.org/whl/cu121/torch_stable.html'
+        ],
+        '11.8': [
+            '2.1.1', 'cu118', '0.16.1', 'cu118', '2.1.1', 'cu118',
+            'https://download.pytorch.org/whl/cu118/torch_stable.html'
+        ],
+    },
+    '2.1.0': {
+        'cpu': [
+            '2.1.0', 'cpu', '0.15.2', 'cpu', '2.0.2', 'cpu',
+            'https://download.pytorch.org/whl/cpu/torch_stable.html',
+        ],
+        '12.1' : [
+            '2.1.0', 'cu121', '0.15.2', 'cu121', '2.0.2', 'cu121',
+            'https://download.pytorch.org/whl/cu121/torch_stable.html'
+        ],
+        '11.8': [
+            '2.1.0', 'cu118', '0.15.2', 'cu118', '2.0.2', 'cu118',
+            'https://download.pytorch.org/whl/cu118/torch_stable.html'
+        ],
+    },
     '2.0.1': {
         'cpu': [
             '2.0.1', 'cpu', '0.15.2', 'cpu', '2.0.2', 'cpu',
@@ -421,6 +561,12 @@ CUDA_VERSIONS = {
         'ubuntu_available': ['18.04', '20.04', '22.04'],
         'centos_available': ['7'],
     },
+    '12.1': {
+        'version_name': '12.1.0',
+        'cudnn': '8',
+        'ubuntu_available': ['20.04', '22.04'],
+        'centos_available': ['7'],
+    },
 }
 
 
@@ -624,7 +770,7 @@ def generate_github_build_yml(os_name, os_version, python_version, pytorch_versi
     file_path = os.path.join(save_dir, 'docker_build_{}.yml'.format(kwargs['image_tag'].replace('-', '_')))
     with open(file_path, 'w') as f:
         f.write(content)
-    
+
     print('Image \'{}\' generated, please put the following content in the README.md: '.format(kwargs['image_tag']))
     print('=' * 50)
     print(README_TEMPLATE.format(
